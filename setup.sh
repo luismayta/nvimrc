@@ -10,17 +10,14 @@ VIM_PLUG_URL="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vi
 NVIM_MESSAGE_BREW="Please install brew or use antibody bundle luismayta/zsh-brew branch:develop"
 NVIM_MESSAGE_DONE="Keep calm and use nvim"
 NVIM_REPO_HTTPS="https://github.com/luismayta/nvimrc.git"
-NVIMRC_NAME="init.nvim"
+NVIM_ROOT_PATH="${HOME}/.nvimrc"
 NVIM_CONFIG_DIR="${HOME}/.config"
 NVIM_PACKAGE_NAME="nvim"
 PYTHON_PACKAGES_NVIM=(
     pynvim
     jedi
 )
-SRC_NVIM_DIR="$(pwd)/$(dirname "${0}")/nvim"
-NVIM_SRC_NVIMRC="${SRC_NVIM_DIR}/${NVIMRC_NAME}"
 NVIM_DST_NVIM_DIR="${NVIM_CONFIG_DIR}/nvim"
-NVIM_DST_NVIMRC="${NVIM_DST_NVIM_DIR}/${NVIMRC_NAME}"
 
 message_error() {
     printf "${RED}%s${NORMAL}\n" "[ERROR]: ${1}"
@@ -46,13 +43,14 @@ nvim::install::vimplug() {
     fi
     message_info "Installing vim plug for ${NVIM_PACKAGE_NAME}"
     # Install vim-plug
-    mkdir -p nvim/autoload
-    curl -Lo nvim/autoload/plug.vim "${VIM_PLUG_URL}"
+    mkdir -p "${NVIM_ROOT_PATH}"/nvim/autoload
+    curl -Lo "${NVIM_ROOT_PATH}"/nvim/autoload/plug.vim "${VIM_PLUG_URL}"
     message_success "Installed vim plug for ${NVIM_PACKAGE_NAME}"
 }
 
 nvim::install::dependences() {
     message_info "Installing dependences ${NVIM_PACKAGE_NAME}"
+    mkdir -p "${NVIM_CONFIG_DIR}"
 
     # Install neovim-python; vim-plug requires neovim-python
     if type -p pip > /dev/null; then
@@ -104,8 +102,6 @@ nvim::install() {
 nvim::post_install() {
     message_info "Post Install ${NVIM_PACKAGE_NAME}"
 
-    mkdir -p "${NVIM_CONFIG_DIR}"
-
     message_info "Looking for an existing NVIM config..."
     if [ -d "${NVIM_DST_NVIM_DIR}" ]; then
         message_warning "Found ${NVIM_DST_NVIM_DIR}"
@@ -122,9 +118,14 @@ nvim::post_install() {
 
     message_info "Cloning NVIM from ${NVIM_REPO_HTTPS}"
 
-    env git clone --depth=1 "${NVIM_REPO_HTTPS}" --branch develop "${NVIM_DST_NVIM_DIR}" || {
+    env git clone --depth=1 "${NVIM_REPO_HTTPS}" --branch develop "${NVIM_ROOT_PATH}" || {
         message_warning "git clone of NVIM repo failed."
+        return
     }
+
+    nvim::install::vimplug
+
+    ln -fs "${NVIM_ROOT_PATH}/nvim" "${NVIM_DST_NVIM_DIR}"
 
     message_success "${NVIM_MESSAGE_DONE}"
 
