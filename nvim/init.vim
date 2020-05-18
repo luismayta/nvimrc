@@ -11,7 +11,13 @@ Plug 'vim-scripts/Mustang2'
 Plug 'vim-scripts/darktango.vim'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'jdkanani/vim-material-theme'
+Plug 'Lokaltog/powerline'                 " Powerline fonts plugin
 Plug 'rakr/vim-one'
+
+Plug 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
+Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline-themes'     " Themes for airline
 
 Plug 'neovimhaskell/haskell-vim'
 Plug 'godlygeek/tabular'
@@ -32,8 +38,7 @@ Plug 'pdurbin/vim-tsv'
 Plug 'PProvost/vim-ps1'
 Plug 'rhysd/vim-github-actions'
 
-Plug 'lifthrasiir/hangeul.vim'
-Plug 'vim-airline/vim-airline'
+
 Plug 'w0rp/ale'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
@@ -54,15 +59,14 @@ Plug 'wakatime/vim-wakatime'
 "End plugin list --------------------------------------------------------------
 call plug#end()
 
+" python path
+let g:python3_host_prog = '$HOME/.pyenv/shims/python'
+
 if has("macunix")
   language en_US
 else
   language en_US.utf8
 endif
-
-"Enable hangeul.vim
-let hangeul_enabled = 1
-let hangeul_hanja_path = resolve(expand('<sfile>:p:h:h') . '/hanja.txt')
 
 "Syntax highlighting.
 syntax on
@@ -196,12 +200,12 @@ endif
 "MacVim-specific configurations.
 if has("gui_macvim")
   set imd
-  set guifont=Source_Code_Pro_Light:h16.00
+  set guifont=FuraCode_Nerd_Font_Mono_Retina:h16.00
 endif
 
 "GVim under GNOME
 if has("gui_gnome")
-  set guifont="Ubuntu Mono 11"
+  set guifont="FuraCode Nerd Font Mono 16"
 endif
 
 "GVim under Windows
@@ -231,13 +235,16 @@ nmap ga <Plug>(EasyAlign)
 let g:vimshell_prompt_expr = '$USER . " " . fnamemodify(getcwd(), ":~") . " $ "'
 let g:vimshell_prompt_pattern = '^[a-z_-][a-z0-9_-]\{,31\} [~/][^$ ]* $ '
 
+colorscheme challenger_deep
+
+" lightline
+let g:lightline = { 'colorscheme': 'challenger_deep' }
+
 "True colors
 if $TERM_PROGRAM == "iTerm.app" || has("gui_vimr")
   set termguicolors
-  colorscheme material-theme
   set background=dark
 else
-  colorscheme seoul256
   set background=dark
 endif
 
