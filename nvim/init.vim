@@ -1,79 +1,22 @@
-"No compatibility to traditional vi
-set nocompatible
+"set-directory
+let g:vimpath=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
-"vim-plug
-call plug#begin('~/.config/nvim/plugged')
+"source the vimrc in the current directory if it is there
+if filereadable(getcwd() . "/.vim")
+  execute ":source " . getcwd() . "/.vim"
+endif
 
-"Plugin list ------------------------------------------------------------------
-
-Plug 'altercation/vim-colors-solarized'
-Plug 'vim-scripts/Mustang2'
-Plug 'vim-scripts/darktango.vim'
-Plug 'vim-scripts/xoria256.vim'
-Plug 'jdkanani/vim-material-theme'
-Plug 'Lokaltog/powerline'                 " Powerline fonts plugin
-Plug 'rakr/vim-one'
-
-Plug 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
-Plug 'vim-airline/vim-airline'
-Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline-themes'     " Themes for airline
-
-Plug 'neovimhaskell/haskell-vim'
-Plug 'godlygeek/tabular'
-Plug 'achimnol/python-syntax'
-Plug 'plasticboy/vim-markdown'
-Plug 'othree/html5.vim'
-Plug 'lepture/vim-jinja'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'cespare/vim-toml'
-Plug 'stephpy/vim-yaml'
-Plug 'spoqa/nirum.vim'
-Plug 'pbrisbin/vim-syntax-shakespeare'
-Plug 'elmcast/elm-vim'
-Plug 'rust-lang/rust.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'tomlion/vim-solidity'
-Plug 'pdurbin/vim-tsv'
-Plug 'PProvost/vim-ps1'
-Plug 'rhysd/vim-github-actions'
-
-
-Plug 'w0rp/ale'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
-Plug 'simnalamburt/vim-mundo'
-Plug 'rhysd/committia.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'tpope/vim-fugitive'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'junegunn/vim-slash'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/vimshell.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'sgur/vim-editorconfig'
-
-Plug 'wakatime/vim-wakatime'
-
-"End plugin list --------------------------------------------------------------
-call plug#end()
+exec "source " vimpath . "/config/keys.vim"
+exec "source " vimpath . "/config/global.vim"
+exec "source " vimpath . "/config/plugins.vim"
+exec "source " vimpath . "/config/colors.vim"
 
 " python path
 let g:python3_host_prog = '$HOME/.pyenv/shims/python'
 
-if has("macunix")
-  language en_US
-else
-  language en_US.utf8
-endif
-
 "Syntax highlighting.
 syntax on
 
-"Softtab -- use spaces instead tabs.
-set expandtab
-set tabstop=4 shiftwidth=4 sts=4
 set autoindent nosmartindent
 
 "set tab characters apart
@@ -88,9 +31,6 @@ set backspace=2
 
 "Detect modeline hints.
 set modeline
-
-"Disable bell
-set visualbell t_vb=
 
 "Prefer UTF-8.
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp949,korea,iso-2022-kr
@@ -183,12 +123,6 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 autocmd WinEnter * match OverLength /\%81v.\+/
 
-"I dislike folding.
-set nofoldenable
-
-"I dislike visual bell as well.
-set novisualbell
-
 "gVim-specific configurations (including MacVim).
 if has("gui_running")
   set bg=dark
@@ -196,25 +130,6 @@ if has("gui_running")
   set linespace=1
   set number
 endif
-
-"MacVim-specific configurations.
-if has("gui_macvim")
-  set imd
-  set guifont=FuraCode_Nerd_Font_Mono_Retina:h16.00
-endif
-
-"GVim under GNOME
-if has("gui_gnome")
-  set guifont="FuraCode Nerd Font Mono 16"
-endif
-
-"GVim under Windows
-if has("gui_win32")
-  set guifont=Consolas:h11:cANSI
-endif
-
-"vim-airline
-let g:airline_powerline_fonts = 1
 
 "Mundo -- Undo tree visualization
 set undofile
@@ -234,19 +149,6 @@ nmap ga <Plug>(EasyAlign)
 "VimShell
 let g:vimshell_prompt_expr = '$USER . " " . fnamemodify(getcwd(), ":~") . " $ "'
 let g:vimshell_prompt_pattern = '^[a-z_-][a-z0-9_-]\{,31\} [~/][^$ ]* $ '
-
-colorscheme challenger_deep
-
-" lightline
-let g:lightline = { 'colorscheme': 'challenger_deep' }
-
-"True colors
-if $TERM_PROGRAM == "iTerm.app" || has("gui_vimr")
-  set termguicolors
-  set background=dark
-else
-  set background=dark
-endif
 
 "Alias :W to :w
 cnoreabbrev W w
