@@ -14,6 +14,7 @@ NVIM_ROOT_PATH="${HOME}/.nvimrc"
 NVIM_CONFIG_DIR="${HOME}/.config"
 NVIM_PACKAGE_NAME="nvim"
 PYTHON_PACKAGES_NVIM=(
+    msgpack
     pynvim
     jedi
 )
