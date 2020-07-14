@@ -1,9 +1,9 @@
 nvimrc
 ======
 
-|Build Status| |GitHub issues| |GitHub license|
-
 settings for nvim
+
+|Build Status| |GitHub issues| |GitHub license|
 
 :Version: 0.0.0
 :Web: https://github.com/luismayta/nvimrc
@@ -139,11 +139,11 @@ Made with :coffee: and :pizza: by `Luis Mayta`_ and `equipindustry`_.
 .. |GitHub issues| image:: https://img.shields.io/github/issues/luismayta/nvimrc.svg
     :target: https://github.com/luismayta/nvimrc/issues
 .. |GitHub license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
-    :target: LICENSE
+   :target: LICENSE
 
 .. Team:
 .. |Luis Mayta| image:: https://github.com/luismayta.png?size=100
-    :target: https://github.com/luismayta
+   :target: https://github.com/luismayta
 
 .. Footer:
 .. |linkedin| image:: http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png
