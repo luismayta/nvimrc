@@ -6,7 +6,7 @@ If you have any problems with starting nvimrc, please report it on GitHub: https
 
 
 Who is behind nvimrc
------------------------
+--------------------
 
 **Organisation**:
 
