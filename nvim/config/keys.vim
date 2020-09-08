@@ -26,7 +26,7 @@ let NERDTreeWinSize=40
 let g:NERDTreeIgnore=['\.git$[[dir]]', 'node_modules$[[dir]]', '\.nyc_output$[[dir]]', '\.pyc$', '\.pyo$', '__pycache__$']
 
 " Show the current file in NERDTree.
-map <leader>t :NERDTreeFind<cr>
+map <leader>n :NERDTreeFind<cr>
 
 nnoremap <Leader>n :call NumberToggle()<cr>
 
