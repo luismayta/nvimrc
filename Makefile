@@ -3,6 +3,7 @@
 #
 
 OS := $(shell uname)
+
 .PHONY: help
 .DEFAULT_GOAL := help
 
@@ -49,8 +50,7 @@ docker-dev:=$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/dev.yml
 
 docker-test-run:=$(docker-test) run --rm ${DOCKER_SERVICE_TEST}
 docker-dev-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_DEV}
-
-terragrunt:=terragrunt
+docker-yarn-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_YARN}
 
 include provision/make/*.mk
 
@@ -65,20 +65,36 @@ help:
 	@make docs.help
 	@make test.help
 	@make utils.help
+	@make python.help
+	@make yarn.help
 
 setup:
 	@echo "=====> install packages..."
-	pyenv local ${PYTHON_VERSION}
-	yarn install
-	$(PIPENV_INSTALL) --dev --skip-lock
-	$(PIPENV_RUN) pre-commit install
-	$(PIPENV_RUN) pre-commit install -t pre-push
+	make python.setup
+	make python.precommit
 	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
 	@[ -e ".env" ] || cp -rf .env.example .env
+	make yarn.setup
 	@echo ${MESSAGE_HAPPY}
 
 environment:
 	@echo "=====> loading virtualenv ${PYENV_NAME}..."
-	pyenv local ${PYTHON_VERSION}
-	@pipenv --venv || $(PIPENV_INSTALL) --python=${PYTHON_VERSION} --skip-lock
+	make python.environment
 	@echo ${MESSAGE_HAPPY}
+
+.PHONY: clean
+clean:
+	@rm -f ./dist.zip
+	@rm -fr ./vendor
+
+# Show to-do items per file.
+todo:
+	@grep \
+		--exclude-dir=vendor \
+		--exclude-dir=node_modules \
+		--exclude-dir=bin \
+		--exclude=Makefile \
+		--text \
+		--color \
+		-nRo -E ' TODO:.*|SkipNow|FIXMEE:.*' .
+.PHONY: todo
