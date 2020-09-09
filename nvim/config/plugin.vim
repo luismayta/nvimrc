@@ -1,9 +1,8 @@
-" vim-plug
-
-call plug#begin('~/.config/nvim/plugged')
-
+call plug#begin(vimpath . '/plugged')
 " Plugin list ------------------------------------------------------------------
 "
+
+Plug 'sgur/vim-editorconfig'
 Plug 'wakatime/vim-wakatime'
 
 Plug 'vim-scripts/Mustang2'
@@ -44,6 +43,34 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/vimshell.vim'
 Plug 'junegunn/vim-easy-align'
 
-" End plugin list --------------------------------------------------------------
+" appearance
+
+Plug 'Lokaltog/powerline'                 " Powerline fonts plugin
+
+Plug 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
+Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline-themes'     " Themes for airline
+Plug 'luochen1990/rainbow'
+
+Plug 'https://github.com/ryanoasis/vim-devicons'
+
+" editing
+Plug 'tpope/vim-commentary'               " Comment stuff out
+
+" NERD Commenter plugin.
+
+Plug 'scrooloose/nerdcommenter'
+
+" projects
+Plug 'scrooloose/nerdtree'                " Project and file navigation
+Plug 'kien/ctrlp.vim'                     " Fast transitions on project files
+
+" python
+Plug 'achimnol/python-syntax'
+
+" searching
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()

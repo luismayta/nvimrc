@@ -1,11 +1,10 @@
-call plug#begin('~/.config/nvim/plugged')
-
-exec "source " vimpath . "appearance.vim"
-exec "source " vimpath . "editing.vim"
-exec "source " vimpath . "go.vim"
-exec "source " vimpath . "navigation.vim"
-exec "source " vimpath . "projects.vim"
-exec "source " vimpath . "python.vim"
-exec "source " vimpath . "searching.vim"
-
-call plug#end()
+exec "source " vimpath . "/module/general.vim"
+exec "source " vimpath . "/module/appearance.vim"
+exec "source " vimpath . "/module/editing.vim"
+exec "source " vimpath . "/module/go.vim"
+exec "source " vimpath . "/module/navigation.vim"
+exec "source " vimpath . "/module/projects.vim"
+exec "source " vimpath . "/module/python.vim"
+exec "source " vimpath . "/module/haskell.vim"
+exec "source " vimpath . "/module/rust.vim"
+exec "source " vimpath . "/module/searching.vim"
