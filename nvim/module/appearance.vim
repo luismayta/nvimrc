@@ -1,12 +1,3 @@
-Plug 'Lokaltog/powerline'                 " Powerline fonts plugin
-
-Plug 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
-Plug 'vim-airline/vim-airline'
-Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline-themes'     " Themes for airline
-Plug 'luochen1990/rainbow'
-PLug 'ryanoasis/vim-devicons'
-
 colorscheme challenger_deep
 
 " lightline
