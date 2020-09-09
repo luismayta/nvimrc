@@ -6,14 +6,9 @@ if filereadable(getcwd() . "/.vim")
   execute ":source " . getcwd() . "/.vim"
 endif
 
-exec "source " vimpath . "/config/keys.vim"
-exec "source " vimpath . "/config/global.vim"
-exec "source " vimpath . "/config/plugins.vim"
+exec "source " vimpath . "/config/init.vim"
 exec "source " vimpath . "/module/init.vim"
-exec "source " vimpath . "/config/colors.vim"
 
-" python path
-let g:python3_host_prog = '$HOME/.pyenv/shims/python'
 
 "Syntax highlighting.
 syntax on
@@ -81,18 +76,6 @@ let b:ale_fixers = {
 let g:ale_fix_on_save = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-"Python-related configurations.
-"See also: https://github.com/achimnol/python-syntax#options-used-by-the-script
-let python_highlight_builtins = 1
-let python_highlight_type_annotations = 1
-let python_highlight_exceptions = 1
-let python_highlight_string_formatting = 1
-let python_highlight_string_format = 1
-let python_highlight_string_templates = 0
-let python_highlight_indent_errors = 1
-let python_highlight_space_errors = 0
-let python_highlight_doctests = 1
 
 "Markdown-related configurations.
 augroup mkd
