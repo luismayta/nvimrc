@@ -46,8 +46,7 @@ Plug 'junegunn/vim-easy-align'
 " appearance
 
 Plug 'Lokaltog/powerline'                 " Powerline fonts plugin
-
-Plug 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
+Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline-themes'     " Themes for airline
