@@ -1,7 +1,7 @@
-colorscheme challenger_deep
+colorscheme onedark
 
 " lightline
-let g:lightline = { 'colorscheme': 'challenger_deep' }
+let g:lightline = { 'colorscheme': 'onedark' }
 
 "vim-airline
 let g:airline_powerline_fonts = 1
