@@ -1,6 +1,7 @@
 exec "source " vimpath . "/module/general.vim"
 exec "source " vimpath . "/module/appearance.vim"
 exec "source " vimpath . "/module/editing.vim"
+exec "source " vimpath . "/module/snippets.vim"
 exec "source " vimpath . "/module/go.vim"
 exec "source " vimpath . "/module/navigation.vim"
 exec "source " vimpath . "/module/projects.vim"

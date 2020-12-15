@@ -1,7 +1,24 @@
-colorscheme onedark
+" dracula settings
+:syntax on
+colorscheme dracula
+
+let g:dracula_bold=1
+let g:dracula_italic=1
+let g:dracula_underline=1
+let g:dracula_undercurl=1
+let g:dracula_inverse=1
+let g:dracula_colorterm=1
+
+" color settings after dracula
+hi! Normal ctermbg=NONE
+hi! NonText ctermbg=NONE
+hi! Normal guibg=NONE
+hi! NonText guibg=NONE
+
+" colorscheme onedark
 
 " lightline
-let g:lightline = { 'colorscheme': 'onedark' }
+let g:lightline = { 'colorscheme': 'dracula' }
 
 "vim-airline
 let g:airline_powerline_fonts = 1
@@ -34,4 +51,25 @@ endif
 " the right colours *almost* - except the background!
 if has('nvim') || has('termguicolors')
   set termguicolors
+endif
+
+" Undo tree
+let g:undotree_SetFocusWhenToggle=1
+"Mundo -- Undo tree visualization
+set undofile
+set undodir=~/.config/nvim/undo
+nnoremap <F5> :MundoToggle
+
+"Keep 80 columns.
+set colorcolumn=80
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+autocmd WinEnter * match OverLength /\%81v.\+/
+
+"gVim-specific configurations (including MacVim).
+if has("gui_running")
+  set bg=dark
+  set guioptions=egmrLt
+  set linespace=1
+  set number
 endif
