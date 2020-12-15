@@ -2,6 +2,7 @@
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<cr>
 "=====================================================
 "" NERDTree settings
 "=====================================================
@@ -17,8 +18,7 @@ map <leader>t :NERDTreeFind<cr>
 " autocmd vimenter * NERDTree | wincmd p
 
 let NERDTreeShowHidden=1 " Show or hide hidden files.
-
-let NERDTreeWinSize=40
+let NERDTreeWinSize=30
 
 " But still ignore some normally not needed files.
 let g:NERDTreeIgnore=['\.git$[[dir]]', 'node_modules$[[dir]]', '\.nyc_output$[[dir]]', '\.pyc$', '\.pyo$', '__pycache__$']
