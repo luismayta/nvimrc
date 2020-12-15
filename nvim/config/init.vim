@@ -1,3 +1,5 @@
-exec "source " vimpath . "/config/keys.vim"
 exec "source " vimpath . "/config/global.vim"
-exec "source " vimpath . "/config/plugin.vim"
+exec "source " vimpath . "/config/plugins.vim"
+exec "source " vimpath . "/config/colors.vim"
+exec "source " vimpath . "/config/functions.vim"
+exec "source " vimpath . "/config/keys.vim"
