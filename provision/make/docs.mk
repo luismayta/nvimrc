@@ -1,5 +1,5 @@
 #
-# See ./CONTRIBUTING.rst
+# See ./docs/contributing.md
 #
 
 docs:
@@ -8,13 +8,12 @@ docs:
 docs.help:
 	@echo '    Docs:'
 	@echo ''
-	@echo '        docs.show                  Show mkdocs'
-	@echo '        docs.build                 build mkdocs'
+	@echo '        docs.build                  Show mkdocs'
+	@echo '        docs.serve                  server Make documentation'
 	@echo ''
-
-docs.show:
-	$(PIPENV_RUN) mkdocs serve
 
 docs.build:
 	$(PIPENV_RUN) mkdocs build
 
+docs.serve:
+	$(PIPENV_RUN) mkdocs serve
