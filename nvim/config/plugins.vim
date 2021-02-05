@@ -32,6 +32,7 @@ Plug 'rhysd/vim-github-actions'
 
 " -------------------=== Languages support ===-------------------
 
+Plug 'hashivim/vim-terraform'
 Plug 'w0rp/ale'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
