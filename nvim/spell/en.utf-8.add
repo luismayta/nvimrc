@@ -73,6 +73,7 @@ middleware
 multicurrency
 multiplayer
 nginx
+nvim
 offline
 phoneticize
 plugin
@@ -80,6 +81,7 @@ polymorphism
 prebuilt
 prepend
 presale
+perf
 refactor
 refactored
 serializer
@@ -88,9 +90,11 @@ serializing
 setuptools
 testnet
 travis
+terraform
 underlayer
 url
 util
 broadcasted
 reorg
 precalculated
+vim
