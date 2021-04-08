@@ -1,0 +1,55 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: zsh-issues
+
+email:
+  support: support@hadenlabs.com
+
+# Logo for this project
+#logo: docs/logo.png
+
+# License of this project
+license: 'LGPLV3'
+
+# Canonical GitHub repo
+github_repo: luismayta/nvimrc
+
+# Badges to display
+badges:
+  - name: GitHub tag (latest SemVer)
+    image: https://img.shields.io/github/v/tag/luismayta/nvimrc.svg?label=latest&sort=semver
+    url: https://github.com/luismayta/nvimrc/releases
+  - name: Lint
+    image: https://github.com/luismayta/nvimrc/actions/workflows/lint.yml/badge.svg?branch=develop
+    url: https://github.com/luismayta/nvimrc/actions
+  - name: Issues
+    image: https://img.shields.io/github/issues/luismayta/nvimrc.svg
+    url: https://github.com/luismayta/nvimrc/issues
+  - name: Latest Release
+    image: https://img.shields.io/github/release/luismayta/nvimrc.svg
+    url: https://github.com/luismayta/nvimrc/releases
+  - name: Beacon
+    image: https://ga-beacon.appspot.com/G-MZEK48EGE8/zsh-issues/readme
+    url: https://github.com/luismayta/nvimrc
+
+# Short description of this project
+description: |-
+  nvimrc settings for mac os and linux.
+
+requirements: |-
+
+  This is a list of applications that need to be installed previously to
+  enjoy all the goodies of this configuration.
+
+  -   [Git](http://git-scm.com)
+  -   [Curl](https://github.com/bagder/curl)
+  -   [Wget](http://www.gnu.org/software/wget)
+
+installation:
+  - 'docs/include/installation/curl.md'
+  - 'docs/include/installation/wget.md'
