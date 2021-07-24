@@ -12,33 +12,62 @@
 
   -->
 
+ 
+
+ [![Latest Release](https://img.shields.io/github/release/luismayta/nvimrc)](https://github.com/luismayta/nvimrc/releases) [![Lint](https://img.shields.io/github/workflow/status/luismayta/nvimrc/lint-code)](https://github.com/luismayta/nvimrc/actions?workflow=lint-code) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735)](https://keepachangelog.com)
+
 # zsh-issues
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/luismayta/nvimrc.svg?label=latest&sort=semver)](https://github.com/luismayta/nvimrc/releases) [![Lint](https://github.com/luismayta/nvimrc/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/luismayta/nvimrc/actions) [![Issues](https://img.shields.io/github/issues/luismayta/nvimrc.svg)](https://github.com/luismayta/nvimrc/issues) [![Latest Release](https://img.shields.io/github/release/luismayta/nvimrc.svg)](https://github.com/luismayta/nvimrc/releases) [![Beacon](https://ga-beacon.appspot.com/G-MZEK48EGE8/zsh-issues/readme)](https://github.com/luismayta/nvimrc)
+ nvimrc settings for mac os and linux. 
 
-nvimrc settings for mac os and linux.
+
+
+
+
+
+
+
+
+
+
 
 ## Requirements
 
-This is a list of applications that need to be installed previously to enjoy all the goodies of this configuration.
 
-- [Git](http://git-scm.com)
-- [Curl](https://github.com/bagder/curl)
-- [Wget](http://www.gnu.org/software/wget)
+This is a list of applications that need to be installed previously to
+enjoy all the goodies of this configuration.
+
+-   [Git](http://git-scm.com)
+-   [Curl](https://github.com/bagder/curl)
+-   [Wget](http://www.gnu.org/software/wget)
+
+
 
 ## Installation
-
 ### [curl](https://curl.se)
 
 ```{.sourceCode .bash}
     bash -c "$(curl -fsSL https://rebrand.ly/o3udt6)"
 ```
-
 ### [wget](https://www.gnu.org/software/wget)
 
 ```{.sourceCode .bash}
     bash -c "$(wget https://rebrand.ly/o3udt6 -O -)"
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Help
 
@@ -76,20 +105,34 @@ Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following co
 
 ### Backwards compatibility in `0.0.z` and `0.y.z` version
 
-- In the context of initial development, backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is increased. (Initial development)
-- In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is increased. (Pre-release)
+- In the context of initial development, backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is
+  increased. (Initial development)
+- In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is
+  increased. (Pre-release)
+
+
+
 
 ## Copyright
 
 Copyright © 2018-2021 [Hadenlabs](https://hadenlabs.com)
 
+
+
 ## Trademarks
 
 All other trademarks referenced herein are the property of their respective owners.
 
+
+
+
+
+
 ## License
 
-The code and styles are licensed under the LGPLV3 license [See project license.](LICENSE).
+The code and styles are licensed under the LGPL-3.0 license [See project license.](LICENSE).
+
+
 
 ## Don't forget to 🌟 Star 🌟 the repo if you like zsh-issues
 
