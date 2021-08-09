@@ -14,6 +14,9 @@
 
  
 
+
+
+
  [![Latest Release](https://img.shields.io/github/release/luismayta/nvimrc)](https://github.com/luismayta/nvimrc/releases) [![Lint](https://img.shields.io/github/workflow/status/luismayta/nvimrc/lint-code)](https://github.com/luismayta/nvimrc/actions?workflow=lint-code) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735)](https://keepachangelog.com)
 
 # zsh-issues
