@@ -50,7 +50,7 @@ repos:
       - id: fix-encoding-pragma
       - id: sort-simple-yaml
   - repo: https://github.com/hadenlabs/pre-commit-hooks
-    rev: eb8ce5d69b0fa77970b5f3fbebb15e401d0cc1be
+    rev: 29c3f47f8fa0ec66d35ccbad761b7cf299e5ee19
     hooks:
       - id: do-not-commit
       - id: markdown-link-check
@@ -71,4 +71,5 @@ repos:
           - --path=.
           - --repo-config-path=.github/linters/.gitleaks.toml
           - --verbose
-
+      - id: prepare-commit-msg
+        stages: [prepare-commit-msg]
