@@ -1,3 +1,13 @@
+<!-- Space: Nvimrc -->
+<!-- Parent: Project -->
+<!-- Title: Releasing -->
+
+<!-- Label: Nvimrc -->
+<!-- Label: Project -->
+<!-- Label: Releasing -->
+<!-- Include: docs/disclaimer.md -->
+<!-- Include: ac:toc -->
+
 # Releasing
 
 ## Bump a new version

@@ -1,3 +1,7 @@
+<!-- Space: Nvimrc -->
+<!-- Parent: Project -->
+<!-- Title: Authors -->
+
 # Authors
 
 ## Leads
