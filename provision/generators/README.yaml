@@ -10,6 +10,10 @@ name: zsh-issues
 email:
   support: support@hadenlabs.com
 
+confluence:
+  space: Nvimrc
+  title: Project
+
 # Logo for this project
 #logo: docs/logo.png
 
@@ -46,9 +50,11 @@ requirements: |-
   This is a list of applications that need to be installed previously to
   enjoy all the goodies of this configuration.
 
-  -   [Git](http://git-scm.com)
-  -   [Curl](https://github.com/bagder/curl)
-  -   [Wget](http://www.gnu.org/software/wget)
+  - [python](https://www.python.org)
+  - [taskfile](https://github.com/go-task/task)
+  - [Git](http://git-scm.com)
+  - [Curl](https://github.com/bagder/curl)
+  - [Wget](http://www.gnu.org/software/wget)
 
 installation:
   - 'docs/include/installation/curl.md'
