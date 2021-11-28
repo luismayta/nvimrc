@@ -74,29 +74,11 @@ Plug 'dunstontc/projectile.nvim' "Projectile
 
 Plug 'mbbill/undotree' " UndoTree : See all undos
 
-" Deoplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 " For func argument completion
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
-" Go
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-
-" JavaScript
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
-" Python
-Plug 'zchee/deoplete-jedi'
-
-" Jedi vim : Python completition
+" Jedi vim : Python completion
 " Don't forget to install this : sudo pip install jedi
 Plug 'davidhalter/jedi-vim'
 
