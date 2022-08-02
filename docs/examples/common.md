@@ -1,9 +1,9 @@
-<!-- Space: Nvimrc -->
-<!-- Parent: Project -->
-<!-- Title: Project Examples -->
+<!-- Space: Projects -->
+<!-- Parent: Nvimrc -->
+<!-- Title: Examples Nvimrc -->
 
 <!-- Label: Examples -->
-<!-- Include: docs/disclaimer.md -->
+<!-- Include: ./../disclaimer.md -->
 <!-- Include: ac:toc -->
 
 ### common

@@ -1,13 +1,3 @@
-<!-- Space: Nvimrc -->
-<!-- Parent: Project -->
-<!-- Title: Troubleshooting -->
-
-<!-- Label: Nvimrc -->
-<!-- Label: Project -->
-<!-- Label: Troubleshooting -->
-<!-- Include: docs/disclaimer.md -->
-<!-- Include: ac:toc -->
-
 # Troubleshooting
 
 ## Environment

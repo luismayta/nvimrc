@@ -1,6 +1,3 @@
- <!-- Space: Nvimrc -->
-<!-- Title: Project -->
-
 <!--
 
 
@@ -15,7 +12,7 @@
 
   -->
 
-[![Latest Release](https://img.shields.io/github/release/luismayta/nvimrc)](https://github.com/luismayta/nvimrc/releases) [![Lint](https://img.shields.io/github/workflow/status/luismayta/nvimrc/lint-code)](https://github.com/luismayta/nvimrc/actions?workflow=lint-code) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735)](https://keepachangelog.com)
+[![Latest Release](https://img.shields.io/github/release/luismayta/nvimrc)](https://github.com/luismayta/nvimrc/releases) [![Lint](https://img.shields.io/github/workflow/status/luismayta/nvimrc/lint-code)](https://github.com/luismayta/nvimrc/actions?workflow=lint-code) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.0.0-orange)](https://keepachangelog.com)
 
 # zsh-issues
 
@@ -25,6 +22,7 @@ nvimrc settings for mac os and linux.
 
 This is a list of applications that need to be installed previously to enjoy all the goodies of this configuration.
 
+- [gomplate](https://github.com/hairyhenderson/gomplate)
 - [python](https://www.python.org)
 - [taskfile](https://github.com/go-task/task)
 - [Git](http://git-scm.com)
@@ -45,6 +43,16 @@ This is a list of applications that need to be installed previously to enjoy all
     bash -c "$(wget https://rebrand.ly/o3udt6 -O -)"
 ```
 
+## Usage
+
+# How to use this project
+
+## Replace name project to New Project
+
+```bash
+task setup
+```
+
 ## Help
 
 **Got a question?**
@@ -53,22 +61,7 @@ File a GitHub [issue](https://github.com/luismayta/nvimrc/issues).
 
 ## Contributing
 
-### Bug Reports & Feature Requests
-
-Please use the [issue tracker](https://github.com/luismayta/nvimrc/issues) to report any bugs or file feature requests.
-
-### Development
-
-In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
-
-1.  **Fork** the repo on GitHub
-2.  **Clone** the project to your own machine
-3.  **Commit** changes to your own branch
-4.  **Push** your work back up to your fork
-
-5.  Submit a **Pull Request** so that we can review your changes
-
-**NOTE:** Be sure to rebase the latest changes from "upstream" before making a pull request!
+See [Contributing](./docs/contributing.md).
 
 ## Module Versioning
 
@@ -87,7 +80,7 @@ Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following co
 
 ## Copyright
 
-Copyright © 2018-2021 [Hadenlabs](https://hadenlabs.com)
+Copyright © 2018-2022 [Hadenlabs](https://hadenlabs.com)
 
 ## Trademarks
 
