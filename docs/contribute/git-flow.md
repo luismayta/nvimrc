@@ -1,12 +1,12 @@
-<!-- Space: Nvimrc -->
-<!-- Parent: Project -->
-<!-- Title: Contributing GitFlow -->
+<!-- Space: Projects -->
+<!-- Parent: Nvimrc -->
+<!-- Title: Contributing GitFlow Nvimrc -->
 
 <!-- Label: Nvimrc -->
 <!-- Label: Project -->
 <!-- Label: Contributing -->
 <!-- Label: GitFlow -->
-<!-- Include: docs/disclaimer.md -->
+<!-- Include: ./../disclaimer.md -->
 <!-- Include: ac:toc -->
 
 To contribute to nvimrc project on [GitHub](https://github.com/luismayta/nvimrc), We use Gitflow (See more [here](https://datasift.github.io/gitflow/IntroducingGitFlow.html)) In a nutshell, it means that you should branch from the main repository and contribute back by making [pull request](https://github.com/luismayta/nvimrc/pulls).
@@ -17,7 +17,7 @@ To contribute to nvimrc project on [GitHub](https://github.com/luismayta/nvimrc)
 
 To follow the instructions in this guide and start contributing to nvimrc project on Gitlab:
 
-1.  **Fork** the repo on GitLab
+1.  **Fork** the repo on GitHub
 2.  **Clone** the project to your own machine
 
 To synchronize with the main repository, add it to the remotes:
@@ -63,7 +63,7 @@ To resolve a conflict, run the following commands.
 
 ```bash
 # checkout a branch you open MR from
-git fetch upstream # assuming upstream is rfid/nvimrc
+git fetch upstream # assuming upstream is luismayta/nvimrc
 git merge upstream/merge_branch # Where merge_branch is a branch you open merge request against.
 # resolve merge requests
 git add changed_files

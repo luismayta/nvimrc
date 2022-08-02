@@ -10,12 +10,8 @@ name: zsh-issues
 email:
   support: support@hadenlabs.com
 
-confluence:
-  space: Nvimrc
-  title: Project
-
 # Logo for this project
-#logo: docs/logo.png
+# logo: docs/logo.png
 
 # License of this project
 license: 'LGPL-3.0'
@@ -38,7 +34,7 @@ badges:
     image: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow
     url: https://conventionalcommits.org
   - name: KeepAChangelog
-    image: https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735
+    image: https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.0.0-orange
     url: https://keepachangelog.com
 
 # Short description of this project
@@ -50,11 +46,15 @@ requirements: |-
   This is a list of applications that need to be installed previously to
   enjoy all the goodies of this configuration.
 
+  - [gomplate](https://github.com/hairyhenderson/gomplate)
   - [python](https://www.python.org)
   - [taskfile](https://github.com/go-task/task)
   - [Git](http://git-scm.com)
   - [Curl](https://github.com/bagder/curl)
   - [Wget](http://www.gnu.org/software/wget)
+
+usages:
+  - docs/usage.md
 
 installation:
   - 'docs/include/installation/curl.md'
