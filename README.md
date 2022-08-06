@@ -47,10 +47,14 @@ This is a list of applications that need to be installed previously to enjoy all
 
 # How to use this project
 
-## Replace name project to New Project
+then run
 
 ```bash
-task setup
+:PackerSync
+```
+
+```bash
+:MasonInstallAll
 ```
 
 ## Help
