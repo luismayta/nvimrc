@@ -1,7 +1,11 @@
 # How to use this project
 
-## Replace name project to New Project
+then run
 
 ```bash
-task setup
+:PackerSync
+```
+
+```bash
+:MasonInstallAll
 ```
