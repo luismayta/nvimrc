@@ -29,7 +29,7 @@ M.myconfig = {
   },
 
   v = {
-    ["<C-C>"] = { '"+y', "   copied to System Clipboard" },
+    ["<C-C>"] = { '"+y', "   Copied to System Clipboard" },
   },
 }
 
@@ -43,6 +43,19 @@ M.nvimtree = {
   n = {
     ["<F2>"] = { "<cmd> NvimTreeToggle <CR>", "   Toggle nvimtree" },
   },
+}
+
+M.focus = {
+  n = {
+    ["<leader>h"] = {':FocusSplitLeft<CR>', { silent = true }},
+    ["<leader>j"] = {':FocusSplitDown<CR>', { silent = true }},
+    ["<leader>k"] = {':FocusSplitUp<CR>', { silent = true }},
+    ["<leader>l"] = {':FocusSplitRight<CR>', { silent = true }},
+-- 'n', '<leader>h', ':FocusSplitLeft<CR>', { silent = true })
+-- 'n', '<leader>j', ':FocusSplitDown<CR>', { silent = true })
+-- 'n', '<leader>k', ':FocusSplitUp<CR>', { silent = true })
+-- 'n', '<leader>l', ':FocusSplitRight<CR>', { silent = true })
+  }
 }
 
 return M
