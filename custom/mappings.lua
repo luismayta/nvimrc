@@ -46,19 +46,9 @@ M.focus = {
 		["<leader>j"] = { ":FocusSplitDown<CR>", { silent = true } },
 		["<leader>k"] = { ":FocusSplitUp<CR>", { silent = true } },
 		["<leader>l"] = { ":FocusSplitRight<CR>", { silent = true } },
-		-- 'n', '<leader>h', ':FocusSplitLeft<CR>', { silent = true })
-		-- 'n', '<leader>j', ':FocusSplitDown<CR>', { silent = true })
-		-- 'n', '<leader>k', ':FocusSplitUp<CR>', { silent = true })
-		-- 'n', '<leader>l', ':FocusSplitRight<CR>', { silent = true })
-	},
-}
-
-M.general = {
-	n = {
-		["<space>"] = { "za", "Toggle folding" },
-
-		["<C-e>"] = { "gt", "Next tab" },
-		["<C-q>"] = { "gT", "Previous tab" },
+		["<C-x>1"] = { ":FocusMaximise<CR>", { silent = true } },
+		["<C-x>2"] = { ":FocusSplitDown<CR>", { silent = true } },
+		["<C-x>3"] = { ":FocusSplitRight<CR>", { silent = true } },
 	},
 }
 
@@ -75,10 +65,14 @@ M.lspconfig = {
 
 M.telescope = {
 	n = {
+		["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "  Find Buffers" },
+		["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "  Find File" },
+		["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "  Recents" },
 		["<leader>fr"] = { "<cmd> Telescope resume <CR>", "   Resume last search" },
 		["<leader>fc"] = { "<cmd> Telescope commands <CR>", "   List all vim commands" },
 		["<leader>fs"] = { "<cmd> Telescope treesitter <CR>", "   Search by outline in buffer" },
 		["<leader>fl"] = { "<cmd> Telescope <CR>", "List all Telescope lists" },
+		["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "  Find Word" },
 	},
 }
 
