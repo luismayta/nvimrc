@@ -34,13 +34,13 @@ This is a list of applications that need to be installed previously to enjoy all
 ### [curl](https://curl.se)
 
 ```{.sourceCode .bash}
-    bash -c "$(curl -fsSL https://rebrand.ly/o3udt6)"
+bash -c "$(curl -fsSL https://rebrand.ly/o3udt6)"
 ```
 
 ### [wget](https://www.gnu.org/software/wget)
 
 ```{.sourceCode .bash}
-    bash -c "$(wget https://rebrand.ly/o3udt6 -O -)"
+bash -c "$(wget https://rebrand.ly/o3udt6 -O -)"
 ```
 
 ## Usage
