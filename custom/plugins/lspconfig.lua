@@ -4,22 +4,30 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local servers = {
+  -- Web
+  "tsserver",
+  "cssls",
   "html",
   "cssls",
   "jsonls",
   "denols",
   "tsserver",
+
   "emmet_ls",
   "pyright",
   "rust_analyzer",
   "solc",
   "clangd",
-  "yamlls",
   "dockerls",
   "ltex",
   "bashls",
-  "gopls",
-  }
+
+  "intelephense",
+  -- terraform
+  "terraformls",
+
+  "yamlls",
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
