@@ -9,6 +9,7 @@ M.ensure_installed = {
   "css-lsp",
   "html-lsp",
   "typescript-language-server",
+	"prettierd",
   "deno",
   "emmet-ls",
   "json-lsp",
@@ -44,6 +45,17 @@ M.ensure_installed = {
 
   -- go
   "gopls",
+  "goimports",
+  "golines",
+
+  -- terraform
+  "terraform-ls",
+
+	-- Additionals
+	"bash-language-server",
+	"intelephense",
+	"yaml-language-server",
+	"hadolint",
 }
 
 return M

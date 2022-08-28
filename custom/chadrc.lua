@@ -1,19 +1,14 @@
--- Just an example, supposed to be placed in /lua/custom/
-
 local M = {}
 
-local override = require "custom.plugins.override"
--- local userOptions = require "custom.options"
+local plugin_conf = require "custom.plugins.configs"
+local mason_packages = require "custom.plugins.mason"
 local userPlugins = require "custom.plugins"
 
 M.options = {
-   user = function()
-      vim.g.mapleader = ','
-   end,
+  user = function()
+    vim.g.mapleader = ","
+  end,
 }
-
--- make sure you maintain the structure of `core/default_config.lua` here,
--- example of changing theme:
 
 M.ui = {
   theme = "onedark",
@@ -21,15 +16,23 @@ M.ui = {
 }
 
 M.plugins = {
-  user = userPlugins,
-  override = {
-    ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
-    ["williamboman/mason.nvim"] = require "custom.plugins.mason",
-    ["hrsh7th/nvim-cmp"] = override.cmp,
+
+  remove = {
+    "max397574/better-escape.nvim",
+    "NvChad/nvterm",
   },
+
+  override = {
+    ["kyazdani42/nvim-tree.lua"] = plugin_conf.nvimtree,
+    ["nvim-treesitter/nvim-treesitter"] = plugin_conf.treesitter,
+    ["hrsh7th/nvim-cmp"] = plugin_conf.cmp,
+    ["NvChad/ui"] = plugin_conf.chadui,
+    ["williamboman/mason.nvim"] = mason_packages,
+  },
+
+  user = userPlugins,
 }
 
-M.options = require "custom.options"
-M.mappings = require "custom.mappings"
+M.mappings = require("custom.mappings")
 
 return M
