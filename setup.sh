@@ -6,22 +6,36 @@ YELLOW="\033[0;33m"
 BLUE="\033[0;36m"
 NORMAL="\033[0m"
 
+# nvchad
+NVCHAD_REPOSITORY_URL="https://github.com/NvChad/NvChad"
+
+
+# nvim
 NVIM_MESSAGE_BREW="Please install brew or use antibody bundle luismayta/zsh-brew branch:develop"
 NVIM_MESSAGE_DONE="Keep calm and use nvim"
 NVIM_REPO_HTTPS="https://github.com/luismayta/nvimrc.git"
-NVIM_ROOT_PATH="${HOME}/.nvimrc"
-NVIM_CONFIG_DIR="${HOME}/.config"
+
+# home
+HOME_CONFIG_PATH="${HOME}/.config"
+
+# nvimrc
+NVIMRC_PATH="${HOME}/.nvimrc"
+NVIMRC_LUA_PATH="${NVIMRC_PATH}/nvim/lua"
+NVIMRC_CUSTOM_PATH="${NVIMRC_LUA_PATH}/custom"
+
+# nvim
+NVIM_CONFIG_PATH="${HOME_CONFIG_PATH}/nvim"
 NVIM_PACKAGE_NAME="nvim"
+NVIM_ROOT_PATH="${HOME}/.nvim"
+
 PYTHON_PACKAGES_NVIM=(
   msgpack
   pynvim
   jedi
 )
-NVIM_DST_NVIM_DIR="${NVIM_CONFIG_DIR}/nvim"
-NVIM_DST_LUA_DIR="${NVIM_DST_NVIM_DIR}/lua"
-NVIM_DST_CUSTOM_DIR="${NVIM_DST_LUA_DIR}/custom"
-NVIM_ROOT_LUA_PATH="${NVIM_ROOT_PATH}/nvim/lua"
-NVIM_ROOT_CUSTOM_PATH="${NVIM_ROOT_LUA_PATH}/custom"
+
+NVIM_LUA_PATH="${NVIM_CONFIG_PATH}/lua"
+NVIM_CUSTOM_PATH="${NVIM_LUA_PATH}/custom"
 
 message_error() {
   printf "${RED}%s${NORMAL}\n" "[ERROR]: ${1}"
@@ -37,12 +51,12 @@ message_warning() {
 }
 
 message_success() {
-  printf "${GREEN}%s${NORMAL}\n" "🍺️ [SUCCESS]: ${1}"
+  printf "${GREEN}%s${NORMAL}\n" "🧉 [SUCCESS]: ${1}"
 }
 
 nvim::install::dependences() {
   message_info "Installing dependences ${NVIM_PACKAGE_NAME}"
-  mkdir -p "${NVIM_CONFIG_DIR}"
+  mkdir -p "${NVIM_CONFIG_PATH}"
 
   # Install neovim-python; vim-plug requires neovim-python
   if type -p pip > /dev/null; then
@@ -79,8 +93,8 @@ nvim::install::dependences() {
 
 # nvim::backup::config - backup configuration NVIM app
 nvim::backup::config() {
-  message_info "You will see your old ${NVIM_DST_NVIM_DIR} as ${NVIM_DST_NVIM_DIR}/NVIM.bak"
-  mv "${NVIM_DST_NVIM_DIR}" "${NVIM_DST_NVIM_DIR}/NVIM.bak"
+  message_info "You will see your old ${NVIM_CONFIG_PATH} as ${NVIM_CONFIG_PATH}/NVIM.bak"
+  mv "${NVIM_CONFIG_PATH}" "${NVIM_CONFIG_PATH}/NVIM.bak"
   message_success "backup config ${NVIM_PACKAGE_NAME}"
 }
 
@@ -100,7 +114,7 @@ nvim::install() {
 
 nvim::clean() {
   message_info "start clean configurations ${NVIM_PACKAGE_NAME}"
-  rm -rf ~/.config/nvim
+  rm -rf "${HOME_CONFIG_PATH}"/nvim
   rm -rf ~/.local/share/nvim
   rm -rf ~/.cache/nvim
   message_success "finish clean configurations ${NVIM_PACKAGE_NAME}"
@@ -108,7 +122,7 @@ nvim::clean() {
 
 nvchad::install() {
   message_info "Install nvchad"
-  git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+  git clone "${NVCHAD_REPOSITORY_URL}" "${NVIM_CONFIG_PATH}" --depth 1 && nvim
   message_success "Installed nvchad"
 }
 
@@ -116,8 +130,8 @@ nvim::post_install() {
   message_info "Post Install ${NVIM_PACKAGE_NAME}"
 
   message_info "Looking for an existing NVIM config..."
-  if [ -d "${NVIM_DST_NVIM_DIR}" ]; then
-      message_warning "Found ${NVIM_DST_NVIM_DIR}"
+  if [ -d "${NVIM_CONFIG_PATH}" ]; then
+      message_warning "Found ${NVIM_CONFIG_PATH}"
       nvim::backup::config
   fi
 
@@ -137,7 +151,7 @@ nvim::post_install() {
       return
   }
 
-  ln -fs "${NVIM_ROOT_CUSTOM_PATH}" "${NVIM_DST_CUSTOM_DIR}"
+  ln -fs "${NVIMRC_CUSTOM_PATH}" "${NVIM_CUSTOM_PATH}"
 
   message_success "${NVIM_MESSAGE_DONE}"
 
