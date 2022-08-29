@@ -73,6 +73,7 @@ M.telescope = {
 		["<leader>fs"] = { "<cmd> Telescope treesitter <CR>", "   Search by outline in buffer" },
 		["<leader>fl"] = { "<cmd> Telescope <CR>", "List all Telescope lists" },
 		["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "  Find Word" },
+		["<leader>fg"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "  Find Word current buffer" },
 	},
 }
 
