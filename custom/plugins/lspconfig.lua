@@ -14,7 +14,6 @@ local servers = {
 	"tsserver",
 
 	"emmet_ls",
-	"pyright",
 	"rust_analyzer",
 	"solc",
 	"clangd",
@@ -28,6 +27,12 @@ local servers = {
 	"terraform_lsp",
 	"terraformls",
 	"tflint",
+
+	-- Python
+	"jedi_language_server",
+	"pylsp",
+	"pyre",
+	"pyright",
 
 	"yamlls",
 }
