@@ -13,6 +13,10 @@ local servers = {
 	"denols",
 	"tsserver",
 
+	-- Go
+	"golangci_lint_ls",
+	"gopls",
+
 	"emmet_ls",
 	"rust_analyzer",
 	"solc",

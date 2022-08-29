@@ -49,10 +49,20 @@ M.ensure_installed = {
 	-- latex and md
 	"ltex-ls",
 
-	-- go
-	"gopls",
+	-- Go
+	"delve",
+	"go-debug-adapter",
+	"gofumpt",
 	"goimports",
+	"golangci-lint",
+	"golangci-lint-langserver",
 	"golines",
+	"gomodifytags",
+	"gopls",
+	"gotests",
+	"impl",
+	"revive",
+	"staticcheck",
 
 	-- Terraform
 	"terraform-ls",
