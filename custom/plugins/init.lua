@@ -1,6 +1,21 @@
 return {
 
+	["hashivim/vim-terraform"] = {},
+
 	["wakatime/vim-wakatime"] = {},
+
+	-- tmux.nvim
+	--
+	-- https://github.com/aserowy/tmux.nvim
+	["aserowy/tmux.nvim"] = {
+		config = function()
+			require("tmux").setup({
+				copy_sync = {
+					enable = true,
+				},
+			})
+		end,
+	},
 
 	["karb94/neoscroll.nvim"] = {
 		config = function()
