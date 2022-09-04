@@ -5,9 +5,7 @@ local mason_packages = require "custom.plugins.mason"
 local userPlugins = require "custom.plugins"
 
 M.options = {
-  user = function()
-    vim.g.mapleader = ","
-  end,
+  mapleader = ",",
 }
 
 M.ui = {
@@ -18,7 +16,6 @@ M.ui = {
 M.plugins = {
 
   remove = {
-    "max397574/better-escape.nvim",
     "NvChad/nvterm",
   },
 

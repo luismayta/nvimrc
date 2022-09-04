@@ -1,61 +1,106 @@
 local M = {}
 
 M.ensure_installed = {
-  -- lua stuff
-  "lua-language-server",
-  "stylua",
+	-- DevOps / SRE
+	"ansible-language-server",
 
-  -- web dev
-  "css-lsp",
-  "html-lsp",
-  "typescript-language-server",
+	-- Docker
+	"dockerfile-language-server",
+	"hadolint",
+
+	-- Lua
+	"lua-language-server",
+	"luacheck",
+	"luaformatter",
+	"stylua",
+
+	-- Web
+	"css-lsp",
+	"html-lsp",
+	"cssmodules-language-server",
+	"typescript-language-server",
+	"tailwindcss-language-server",
 	"prettierd",
-  "deno",
-  "emmet-ls",
-  "json-lsp",
+	"deno",
+	"emmet-ls",
+	"djlint",
 
-  -- shell
-  "shfmt",
-  "shellcheck",
-  "bash-language-server",
+	-- JSON
+	"fixjson",
+	"json-lsp",
+	"json-to-struct",
 
-  -- python
-  "flake8",
-  "pyright",
-  "black",
+	-- shell
+	"shfmt",
+	"shellcheck",
+	"bash-language-server",
 
-  -- solidity
-  "solidity",
+	-- Python
+	"black",
+	"debugpy",
+	"flake8",
+	"isort",
+	"jedi-language-server",
+	"mypy",
+	"pylint",
+	"python-lsp-server",
+	"sourcery",
 
-  -- rust
-  "rust-analyzer",
+	-- Markdown / Text
+	"alex",
+	"grammarly-languageserver",
+	"markdownlint",
+	"marksman",
+	"proselint",
+	"prosemd-lsp",
+	"remark-language-server",
+	"vale",
+	"write-good",
 
-  -- C++
-  "clangd",
-  "clang-format",
+	-- solidity
+	"solidity",
 
-  -- yaml
-  "yaml-language-server",
+	-- rust
+	"rust-analyzer",
 
-  -- docker
-  "dockerfile-language-server",
+	-- C++
+	"clangd",
+	"clang-format",
 
-  -- latex and md
-  "ltex-ls",
+	-- YAML
+	"yaml-language-server",
+	"yamllint",
 
-  -- go
-  "gopls",
-  "goimports",
-  "golines",
+	-- TOML
+	"taplo",
 
-  -- terraform
-  "terraform-ls",
+	-- latex and md
+	"ltex-ls",
+
+	-- Go
+	"delve",
+	"go-debug-adapter",
+	"gofumpt",
+	"goimports",
+	"golangci-lint",
+	"golangci-lint-langserver",
+	"golines",
+	"gomodifytags",
+	"gopls",
+	"gotests",
+	"impl",
+	"revive",
+	"staticcheck",
+
+	-- Terraform
+	"terraform-ls",
+	"tflint",
 
 	-- Additionals
-	"bash-language-server",
 	"intelephense",
-	"yaml-language-server",
-	"hadolint",
+
+	-- Others
+	"jq",
 }
 
 return M
