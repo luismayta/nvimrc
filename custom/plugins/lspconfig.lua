@@ -4,28 +4,46 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 local servers = {
+
+	-- Ansible
+	"ansiblels",
+
+	-- solidity
+	"solc",
+
+	-- Compilation
+	"cmake",
+	"gradle_ls",
+
+	-- Docker
+	"dockerls",
+
 	-- Web
 	"tsserver",
-	"cssls",
 	"html",
-	"cssls",
-	"jsonls",
 	"denols",
 	"tsserver",
+	"emmet_ls",
+	"cssls",
+	"cssmodules_ls",
+	"tailwindcss",
+
+	-- JSON
+	"jsonls",
 
 	-- Go
 	"golangci_lint_ls",
 	"gopls",
 
-	"emmet_ls",
-	"rust_analyzer",
-	"solc",
-	"clangd",
-	"dockerls",
-	"ltex",
-	"bashls",
+	-- Markdown
+	"marksman",
 
-	"intelephense",
+	-- Rust
+	"rust_analyzer",
+
+	-- Shell
+	"awk_ls",
+	"bashls",
 
 	-- Terraform
 	"terraform_lsp",
@@ -38,7 +56,20 @@ local servers = {
 	"pyre",
 	"pyright",
 
+	-- Lua
+	"sumneko_lua",
+
+	-- TOML
+	"taplo",
+
+	-- yaml
 	"yamlls",
+
+	-- Others
+	"clangd",
+	"ltex",
+
+	"intelephense",
 }
 
 for _, lsp in ipairs(servers) do

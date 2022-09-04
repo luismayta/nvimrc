@@ -1,18 +1,34 @@
 local M = {}
 
 M.ensure_installed = {
-	-- lua stuff
+	-- DevOps / SRE
+	"ansible-language-server",
+
+	-- Docker
+	"dockerfile-language-server",
+	"hadolint",
+
+	-- Lua
 	"lua-language-server",
+	"luacheck",
+	"luaformatter",
 	"stylua",
 
-	-- web dev
+	-- Web
 	"css-lsp",
 	"html-lsp",
+	"cssmodules-language-server",
 	"typescript-language-server",
+	"tailwindcss-language-server",
 	"prettierd",
 	"deno",
 	"emmet-ls",
+	"djlint",
+
+	-- JSON
+	"fixjson",
 	"json-lsp",
+	"json-to-struct",
 
 	-- shell
 	"shfmt",
@@ -30,6 +46,17 @@ M.ensure_installed = {
 	"python-lsp-server",
 	"sourcery",
 
+	-- Markdown / Text
+	"alex",
+	"grammarly-languageserver",
+	"markdownlint",
+	"marksman",
+	"proselint",
+	"prosemd-lsp",
+	"remark-language-server",
+	"vale",
+	"write-good",
+
 	-- solidity
 	"solidity",
 
@@ -40,11 +67,12 @@ M.ensure_installed = {
 	"clangd",
 	"clang-format",
 
-	-- yaml
+	-- YAML
 	"yaml-language-server",
+	"yamllint",
 
-	-- docker
-	"dockerfile-language-server",
+	-- TOML
+	"taplo",
 
 	-- latex and md
 	"ltex-ls",
@@ -69,10 +97,10 @@ M.ensure_installed = {
 	"tflint",
 
 	-- Additionals
-	"bash-language-server",
 	"intelephense",
-	"yaml-language-server",
-	"hadolint",
+
+	-- Others
+	"jq",
 }
 
 return M

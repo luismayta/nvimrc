@@ -1,45 +1,32 @@
 return {
 
-	["hashivim/vim-terraform"] = {},
+  ["hashivim/vim-terraform"] = {},
 
-	["wakatime/vim-wakatime"] = {},
+  ["wakatime/vim-wakatime"] = {},
 
-	-- tmux.nvim
-	--
-	-- https://github.com/aserowy/tmux.nvim
-	["aserowy/tmux.nvim"] = {
-		config = function()
-			require("tmux").setup({
-				copy_sync = {
-					enable = true,
-				},
-			})
-		end,
-	},
+  ["karb94/neoscroll.nvim"] = {
+    config = function()
+      require("neoscroll").setup {
+        hide_cursor = false,
+        easing_function = "sine",
+      }
+    end,
+  },
 
-	["karb94/neoscroll.nvim"] = {
-		config = function()
-			require("neoscroll").setup({
-				hide_cursor = false,
-				easing_function = "sine",
-			})
-		end,
-	},
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-lspconfig",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("custom.plugins.null-ls").setup()
+    end,
+  },
 
-	["jose-elias-alvarez/null-ls.nvim"] = {
-		after = "nvim-lspconfig",
-		requires = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("custom.plugins.null-ls").setup()
-		end,
-	},
-
-	["neovim/nvim-lspconfig"] = {
-		config = function()
-			require("plugins.configs.lspconfig")
-			require("custom.plugins.lspconfig")
-		end,
-	},
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
+    end,
+  },
 
 	["tpope/vim-surround"] = {},
 
@@ -65,7 +52,11 @@ return {
 		cmd = "UndotreeToggle",
 	},
 	["goolord/alpha-nvim"] = {
+		requires = { "kyazdani42/nvim-web-devicons" },
 		disable = false,
+		config = function()
+			require("alpha").setup(require("alpha.themes.startify").config)
+		end,
 	},
 	["beauwilliams/focus.nvim"] = {
 		config = function()
