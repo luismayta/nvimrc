@@ -1,8 +1,8 @@
 local M = {}
 
-local plugin_conf = require "custom.plugins.configs"
+local override = require "custom.plugins.configs.override"
 local mason_packages = require "custom.plugins.mason"
-local userPlugins = require "custom.plugins"
+local user_plugins = require "custom.plugins"
 
 M.options = {
   mapleader = ",",
@@ -20,14 +20,15 @@ M.plugins = {
   },
 
   override = {
-    ["kyazdani42/nvim-tree.lua"] = plugin_conf.nvimtree,
-    ["nvim-treesitter/nvim-treesitter"] = plugin_conf.treesitter,
-    ["hrsh7th/nvim-cmp"] = plugin_conf.cmp,
-    ["NvChad/ui"] = plugin_conf.chadui,
+    ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
+    ["NvChad/ui"] =  override.ui ,
+    ["kyazdani42/nvim-tree.lua"] = override.nvimtree ,
+    ["lewis6991/gitsigns.nvim"] = override.gitsigns,
     ["williamboman/mason.nvim"] = mason_packages,
+    ["hrsh7th/nvim-cmp"] = override.cmp,
   },
 
-  user = userPlugins,
+  user = user_plugins,
 }
 
 M.mappings = require("custom.mappings")
