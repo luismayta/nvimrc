@@ -96,7 +96,7 @@ M.ensure_installed = {
 	"terraform-ls",
 	"tflint",
 
-	-- Additionals
+	-- Additional
 	"intelephense",
 
 	-- Others
