@@ -35,18 +35,24 @@ vars:
   PROJECT_NAME: nvimrc
   ORGANIZATION: luismayta
   REVIEWERS: luismayta
-  PYTHON_VERSION: 3.9.2
+  PYTHON_VERSION: 3.10.6
   NODE_VERSION: 16.6.1
-  GIT_IGNORES: python,node,go,zsh,sonar,linux
+  GIT_IGNORES: python,node,go,zsh,sonar,java,maven,intellij+all,terraform,linux
+  DOCKER_PLATFORMS: linux/amd64
   GOLANGCI_VERSION: 1.42.0
   README_FILE: README.md
-  GIT_IGNORES_CUSTOM: >-
+  GIT_IGNORES_CUSTOM: |
     bin
     .scannerwork
     .secrets
+    public
     TMP_CHANGELOG.md
     .task
+    .terraform.lock.hcl
     *.lock.hcl
+    *.zip
+    .external_modules
+    vendor
 
 tasks:
   default:
@@ -94,6 +100,13 @@ tasks:
     desc: Execute prettier files
     cmds:
       - task: prettier:all
+
+  upgrade:
+    run: once
+    desc: Execute upgrade packages
+    cmds:
+      - >-
+        pipenv run pre-commit autoupdate
 
   setup:
     desc: Setup dependences of project
