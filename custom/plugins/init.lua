@@ -1,20 +1,30 @@
-local override = require "custom.plugins.configs.override"
+local override = require("custom.plugins.configs.override")
 
 return {
-  -- disabled
-  ["NvChad/nvterm"] = { disable = true },
-  -- tools
+  ["nvim-telescope/telescope.nvim"] = {
+    module = "telescope",
+    override_options = override.telescope.override_options,
+  },
+  -- TOOLS
   ["skywind3000/asynctasks.vim"] = {
-		requires = "skywind3000/asyncrun.vim",
-		cmd = { "AsyncTask", "AsyncTaskEdit" },
-		opt = true,
-	},
+    requires = "skywind3000/asyncrun.vim",
+    cmd = { "AsyncTask", "AsyncTaskEdit" },
+    opt = true,
+  },
+  ["folke/trouble.nvim"] = {
+    commands = { "Trouble", "TroubleToggle" },
+    config = function()
+      require("trouble").setup()
+    end,
+  },
   -- LSP
+  ["williamboman/mason.nvim"] = {},
   ["neovim/nvim-lspconfig"] = {
     config = function()
-      require "plugins.configs.lspconfig"
+      require("plugins.configs.lspconfig")
       ---@diagnostic disable-next-line: different-requires
-      require "custom.plugins.configs.lspconfig"
+      require("custom.plugins.configs.lspconfig")
+      require("lspconfig").pyright.setup({})
     end,
   },
 
@@ -25,36 +35,44 @@ return {
       require("custom.plugins.null-ls").setup()
     end,
   },
-  ["williamboman/mason.nvim"] = require "custom.plugins.mason",
+
+  -- IA
+  ["github/copilot.vim"] = { after = "nvim-lspconfig" },
 
   -- UI
   ["beauwilliams/focus.nvim"] = {
-		config = function()
-			require("focus").setup()
-		end,
-	},
+    config = function()
+      require("focus").setup()
+    end,
+  },
+  ["rcarriga/nvim-notify"] = {
+    module = "notify",
+    config = function()
+      require("notify").setup({
+        stages = "fade",
+      })
+    end,
+  },
   ["goolord/alpha-nvim"] = {
-		requires = { "kyazdani42/nvim-web-devicons" },
-		disable = false,
-		config = function()
-			require("alpha").setup(require("alpha.themes.startify").config)
-		end,
-	},
+    requires = { "kyazdani42/nvim-web-devicons" },
+    disable = false,
+    override_options = require("custom.plugins.alpha"),
+  },
   ["folke/which-key.nvim"] = { disable = true },
-  ["NvChad/ui"] = {},
-  ["kyazdani42/nvim-tree.lua"] ={},
   ["mbbill/undotree"] = {
-		opt = true,
-		cmd = "UndotreeToggle",
-	},
+    opt = true,
+    cmd = "UndotreeToggle",
+  },
 
   ["dstein64/nvim-scrollview"] = {
     opt = true,
     event = { "BufReadPost" },
     config = function()
-      require "custom.plugins.configs.scrollview"
+      require("custom.plugins.configs.scrollview")
     end,
   },
+  -- SRE
+  ["hashivim/vim-terraform"] = {},
 
   -- Git
   ["lewis6991/gitsigns.nvim"] = { override_options = override.gitsigns },
@@ -66,14 +84,19 @@ return {
   ["nvim-treesitter/nvim-treesitter-context"] = {
     after = "nvim-treesitter",
     config = function()
-      require "custom.plugins.configs.treesitter-context"
+      require("custom.plugins.configs.treesitter-context")
     end,
   },
   -- Editor
-  ["hashivim/vim-terraform"] = {},
+  ["folke/todo-comments.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup()
+    end,
+  },
   ["wakatime/vim-wakatime"] = {},
   ["hrsh7th/nvim-cmp"] = {
-    override_options = override.cmp
+    override_options = override.cmp,
   },
   ["abecodes/tabout.nvim"] = {
     opt = true,
@@ -81,7 +104,7 @@ return {
     wants = "nvim-treesitter",
     after = "nvim-cmp",
     config = function()
-      require "custom.plugins.configs.tabout"
+      require("custom.plugins.configs.tabout")
     end,
   },
   ["phaazon/hop.nvim"] = {
@@ -89,14 +112,14 @@ return {
     event = "BufReadPost",
     branch = "v2",
     config = function()
-      require "custom.plugins.configs.hop"
+      require("custom.plugins.configs.hop")
     end,
   },
   ["mg979/vim-visual-multi"] = {
     opt = true,
     event = "BufReadPost",
     setup = function()
-      require "custom.plugins.configs.visual-multi"
+      require("custom.plugins.configs.visual-multi")
     end,
   },
   ["tpope/vim-surround"] = {
@@ -107,23 +130,23 @@ return {
     opt = true,
     event = "BufReadPost",
     config = function()
-      require "custom.plugins.configs.illuminate"
+      require("custom.plugins.configs.illuminate")
     end,
   },
   ["karb94/neoscroll.nvim"] = {
     opt = true,
     event = "BufReadPost",
     config = function()
-      require "custom.plugins.configs.neoscroll"
+      require("custom.plugins.configs.neoscroll")
     end,
   },
   ["hrsh7th/vim-eft"] = {
     opt = true,
     event = "BufReadPost",
   },
-	["lambdalisue/suda.vim"] = { cmd = "SudaWrite" },
-	["sbdchd/neoformat"] = {},
-	["ray-x/cmp-treesitter"] = {
-		after = "cmp-path",
-	},
+  ["lambdalisue/suda.vim"] = { cmd = "SudaWrite" },
+  ["sbdchd/neoformat"] = {},
+  ["ray-x/cmp-treesitter"] = {
+    after = "cmp-path",
+  },
 }
