@@ -9,162 +9,151 @@ M.ui = {
   },
 }
 
+M.telescope = {
+  override_options = {
+    extensions_list = {
+      "themes",
+      "terms",
+      "notify",
+    },
+  },
+}
+
 M.gitsigns = {
   current_line_blame = true,
 }
 
 M.treesitter = {
-  ensure_installed = {
-    "lua",
-		"vim",
-		"json",
-		"http",
-		"make",
-		"yaml",
-		"toml",
-		"markdown",
-		"dockerfile",
-		"bash",
-		"python",
-		"javascript",
-		"html",
-		"css",
-    "bash",
-    "go",
-    "gomod",
-    "gowork",
-    "lua",
-    "yaml",
-  },
-
-  textobjects = {
-    select = {
-      enable = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["aa"] = "@parameter.outer",
-        ["ia"] = "@parameter.inner",
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
-        ["]]"] = "@function.outer",
-      },
-      goto_previous_start = {
-        ["[["] = "@function.outer",
-      },
-    },
+  override_options = {
+    ensure_installed = "all",
   },
 }
 
 M.mason = {
-ensure_installed = {
-	-- DevOps / SRE
-	"ansible-language-server",
+  ensure_installed = {
+    -- DevOps / SRE
+    "ansible-language-server",
+    -- Terraform
+    "terraform-ls",
+    "tflint",
+    -- Docker
+    "dockerfile-language-server",
+    "hadolint",
 
-	-- Docker
-	"dockerfile-language-server",
-	"hadolint",
+    -- Lua
+    "lua-language-server",
+    "luacheck",
+    "luaformatter",
+    "stylua",
 
-	-- Lua
-	"lua-language-server",
-	"luacheck",
-	"luaformatter",
-	"stylua",
+    -- Web
+    "css-lsp",
+    "html-lsp",
+    "cssmodules-language-server",
+    "typescript-language-server",
+    "tailwindcss-language-server",
+    "prettier",
+    "prettierd",
+    "deno",
+    "emmet-ls",
 
-	-- Web
-	"css-lsp",
-	"html-lsp",
-	"cssmodules-language-server",
-	"typescript-language-server",
-	"tailwindcss-language-server",
-	"prettierd",
-	"deno",
-	"emmet-ls",
-	"djlint",
+    -- JSON
+    "fixjson",
+    "json-lsp",
+    "json-to-struct",
 
-	-- JSON
-	"fixjson",
-	"json-lsp",
-	"json-to-struct",
+    -- shell
+    "shfmt",
+    "shellcheck",
+    "bash-language-server",
 
-	-- shell
-	"shfmt",
-	"shellcheck",
-	"bash-language-server",
+    -- Python
+    "black",
+    "debugpy",
+    "flake8",
+    "isort",
+    "jedi-language-server",
+    "mypy",
+    "pylint",
+    "python-lsp-server",
+    "pyright",
+    "djlint",
+    "sourcery",
+    -- install 3rd party plugins
+    -- :PylspInstall pylsp-mypy pylsp-rope pyls-memestra pyls-isort python-lsp-black python-lsp-ruff
 
-	-- Python
-	"black",
-	"debugpy",
-	"flake8",
-	"isort",
-	"jedi-language-server",
-	"mypy",
-	"pylint",
-	"python-lsp-server",
-	"sourcery",
+    -- Markdown / Text
+    "texlab", -- testing
+    "alex",
+    "grammarly-languageserver",
+    "markdownlint",
+    "marksman",
+    "proselint",
+    "prosemd-lsp",
+    "remark-language-server",
+    "vale",
+    "write-good",
 
-	-- Markdown / Text
-	"alex",
-	"grammarly-languageserver",
-	"markdownlint",
-	"marksman",
-	"proselint",
-	"prosemd-lsp",
-	"remark-language-server",
-	"vale",
-	"write-good",
+    -- solidity
+    "solidity",
+    "solidity-ls",
 
-	-- solidity
-	"solidity",
+    -- rust
+    "rust-analyzer",
+    "rustfmt",
 
-	-- rust
-	"rust-analyzer",
+    -- C++
+    "clangd",
+    "clang-format",
 
-	-- C++
-	"clangd",
-	"clang-format",
+    -- YAML
+    "yaml-language-server",
+    "yamllint",
 
-	-- YAML
-	"yaml-language-server",
-	"yamllint",
+    -- TOML
+    "taplo",
 
-	-- TOML
-	"taplo",
+    -- latex and md
+    "ltex-ls",
 
-	-- latex and md
-	"ltex-ls",
+    -- Go
+    "delve",
+    "go-debug-adapter",
+    "gofumpt",
+    "goimports",
+    "goimports-reviser",
+    "golangci-lint",
+    "golangci-lint-langserver",
+    "golines",
+    "gomodifytags",
+    "gopls",
+    "gotests",
+    "impl",
+    "revive",
+    "staticcheck",
 
-	-- Go
-	"delve",
-	"go-debug-adapter",
-	"gofumpt",
-	"goimports",
-	"golangci-lint",
-	"golangci-lint-langserver",
-	"golines",
-	"gomodifytags",
-	"gopls",
-	"gotests",
-	"impl",
-	"revive",
-	"staticcheck",
+    -- sql
 
-	-- Terraform
-	"terraform-ls",
-	"tflint",
+    "sqls",
+    "sqlls",
+    "sql-formatter",
 
-	-- Additional
-	"intelephense",
+    -- Additional
+    "intelephense",
 
-	-- Others
-	"jq",
-}
+    -- Others
+    "jq",
+    "jq-lsp",
+    "vim-language-server",
+  },
+  pylsp_plugins_to_install = {
+    "pyls-memestra",
+    "pylsp-mypy",
+    "pyls-isort",
+    "python-lsp-black",
+    "pylsp-rope",
+    "python-lsp-ruff",
+  },
 }
 
 M.nvimtree = {
@@ -177,17 +166,17 @@ M.nvimtree = {
 }
 
 M.cmp = function()
-  local cmp = require "cmp"
+  local cmp = require("cmp")
 
   return {
-    mapping = cmp.mapping.preset.insert {
-      ["<C-f>"] = cmp.mapping.confirm {
+    mapping = cmp.mapping.preset.insert({
+      ["<C-f>"] = cmp.mapping.confirm({
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
-      },
+      }),
       ["<C-s>"] = cmp.mapping.scroll_docs(-4),
       ["<C-d>"] = cmp.mapping.scroll_docs(4),
-    },
+    }),
     sources = {
       { name = "luasnip" },
       { name = "nvim_lsp" },
