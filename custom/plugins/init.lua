@@ -40,6 +40,11 @@ return {
   ["github/copilot.vim"] = { after = "nvim-lspconfig" },
 
   -- UI
+  ["kyazdani42/nvim-tree.lua"] = {
+    -- disable lazy load
+    after = "nvim-web-devicons",
+  },
+  ["stevearc/dressing.nvim"] = {},
   ["beauwilliams/focus.nvim"] = {
     config = function()
       require("focus").setup()
@@ -149,4 +154,10 @@ return {
   ["ray-x/cmp-treesitter"] = {
     after = "cmp-path",
   },
+
+  -- python
+  ["ChristianChiarulli/swenv.nvim"] = {},
+  ["mfussenegger/nvim-dap-python"] = {},
+  ["nvim-neotest/neotest"] = {},
+  ["nvim-neotest/neotest-python"] = {},
 }
