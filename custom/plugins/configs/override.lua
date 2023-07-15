@@ -99,7 +99,6 @@ M.mason = {
 
         -- rust
         "rust-analyzer",
-        "rustfmt",
 
         -- C++
         "clangd",
