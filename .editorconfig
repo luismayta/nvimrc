@@ -22,9 +22,12 @@ indent_style = space
 indent_size = 2
 
 # 4 space indentation
-[*.{py}]
+[*.{py,lua}]
 indent_style = space
 indent_size = 4
+
+[*.lua]
+max_line_length = 120
 
 [*.go]
 indent_size = 2
