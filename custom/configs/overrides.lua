@@ -24,8 +24,12 @@ M.gitsigns = {
 }
 
 M.treesitter = {
-  override_options = {
     ensure_installed = "all",
+  indent = {
+    enable = true,
+    -- disable = {
+    --   "python"
+    -- },
   },
 }
 
@@ -46,7 +50,7 @@ M.mason = {
     "luaformatter",
     "stylua",
 
-    -- Web
+    -- web dev stuff
     "css-lsp",
     "html-lsp",
     "cssmodules-language-server",
@@ -156,46 +160,20 @@ M.mason = {
   },
 }
 
+-- git support in nvimtree
 M.nvimtree = {
   git = {
     enable = true,
   },
-  filters = {
-    custom = {
-      "~$",
-      ".pyc$",
-      "^.DS_Store$",
-      "^node_modules$",
-      "^.ropeproject$",
-      "^__pycache__$",
+
+  renderer = {
+    highlight_git = true,
+    icons = {
+      show = {
+        git = true,
+      },
     },
-  },
-  diagnostics = {
-    enable = true,
   },
 }
-
-M.cmp = function()
-  local cmp = require("cmp")
-
-  return {
-    mapping = cmp.mapping.preset.insert({
-      ["<C-f>"] = cmp.mapping.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      }),
-      ["<C-s>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-d>"] = cmp.mapping.scroll_docs(4),
-    }),
-    sources = {
-      { name = "luasnip" },
-      { name = "nvim_lsp" },
-      { name = "buffer" },
-      { name = "nvim_lua" },
-      { name = "path" },
-      { name = "treesitter" },
-    },
-  }
-end
 
 return M

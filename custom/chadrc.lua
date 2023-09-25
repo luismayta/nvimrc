@@ -2,8 +2,10 @@
 local M = {}
 
 local override = require("custom.plugins.configs.override")
-local mason_package = require("custom.plugins.mason")
 local user_plugins = require("custom.plugins")
+
+-- Path to overriding theme and highlights files
+local highlights = require "custom.highlights"
 
 M.options = {
   mapleader = ",",
@@ -12,6 +14,9 @@ M.options = {
 M.ui = {
   theme = "catppuccin",
   transparency = false,
+
+  hl_override = highlights.override,
+  hl_add = highlights.add,
 }
 
 M.plugins = {
@@ -21,11 +26,8 @@ M.plugins = {
   },
 
   override = {
-    ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
     ["NvChad/ui"] = override.ui,
-    ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
     ["lewis6991/gitsigns.nvim"] = override.gitsigns,
-    ["williamboman/mason.nvim"] = mason_package,
     ["hrsh7th/nvim-cmp"] = override.cmp,
   },
 

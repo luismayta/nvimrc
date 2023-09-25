@@ -21,7 +21,6 @@ set.encoding = "utf-8"
 set.foldlevelstart = 99
 set.foldnestmax = 4
 set.foldmethod = "expr"
-set.foldexpr = "nvim_treesitter#foldexpr()"
 set.foldcolumn = "1"
 
 -- Editor

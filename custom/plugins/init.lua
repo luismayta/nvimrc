@@ -1,10 +1,12 @@
-local override = require("custom.plugins.configs.override")
-local cmp = require "cmp"
+local overrides = require("custom.configs.overrides")
 
+---@type NvPluginSpec[]
 local plugins = {
+  -- Override plugin definition options
+
   ["nvim-telescope/telescope.nvim"] = {
     module = "telescope",
-    override_options = override.telescope.override_options,
+    override_options = overrides.telescope.override_options,
   },
   -- TOOLS
   ["skywind3000/asynctasks.vim"] = {
@@ -19,13 +21,25 @@ local plugins = {
     end,
   },
   -- LSP
-  ["williamboman/mason.nvim"] = {},
-  ["neovim/nvim-lspconfig"] = {
-    config = function(_, opts)
-      require("plugins.configs.lspconfig")
-      ---@diagnostic disable-next-line: different-requires
-      require("custom.plugins.configs.lspconfig")
-    end,
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      -- format & linting
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      },
+    },
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end, -- Override to setup mason-lspconfig
   },
 
   ["jose-elias-alvarez/null-ls.nvim"] = {
@@ -36,17 +50,27 @@ local plugins = {
     end,
   },
 
-  -- AI
   {
-    "zbirenbaum/copilot.lua",
-    lazy = false,
-    opts = function ()
-      return require "custom.plugins.configs.copilot"
-    end,
-    config = function(_, opts)
-      require("copilot").setup(opts)
-    end
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
   },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
+  },
+
+  -- AI
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   lazy = false,
+  --   opts = function ()
+  --     return require "custom.plugins.configs.copilot"
+  --   end,
+  --   config = function(_, opts)
+  --     require("copilot").setup(opts)
+  --   end
+  -- },
 
   -- UI
   ["stevearc/dressing.nvim"] = {},
@@ -85,18 +109,9 @@ local plugins = {
   ["hashivim/vim-terraform"] = {},
 
   -- Git
-  ["lewis6991/gitsigns.nvim"] = { override_options = override.gitsigns },
+  ["lewis6991/gitsigns.nvim"] = { override_options = overrides.gitsigns },
   ["tpope/vim-fugitive"] = {},
 
-  -- Treesitter
-  ["nvim-treesitter/nvim-treesitter"] = { override_options = override.treesitter },
-  ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
-  ["nvim-treesitter/nvim-treesitter-context"] = {
-    after = "nvim-treesitter",
-    config = function()
-      require("custom.plugins.configs.treesitter-context")
-    end,
-  },
   -- Editor
   ["folke/todo-comments.nvim"] = {
     requires = "nvim-lua/plenary.nvim",
@@ -105,31 +120,20 @@ local plugins = {
     end,
   },
   ["wakatime/vim-wakatime"] = {},
-  ["hrsh7th/nvim-cmp"] = {
-    override_options = override.cmp,
-  },
-  ["abecodes/tabout.nvim"] = {
-    opt = true,
-    event = "InsertEnter",
-    wants = "nvim-treesitter",
-    after = "nvim-cmp",
-    config = function()
-      require("custom.plugins.configs.tabout")
-    end,
-  },
+  ["hrsh7th/nvim-cmp"] = {},
   ["phaazon/hop.nvim"] = {
     opt = true,
     event = "BufReadPost",
     branch = "v2",
     config = function()
-      require("custom.plugins.configs.hop")
+      require("custom.configs.hop")
     end,
   },
   ["mg979/vim-visual-multi"] = {
     opt = true,
     event = "BufReadPost",
     setup = function()
-      require("custom.plugins.configs.visual-multi")
+      require("custom.configs.visual-multi")
     end,
   },
   ["tpope/vim-surround"] = {
@@ -140,14 +144,14 @@ local plugins = {
     opt = true,
     event = "BufReadPost",
     config = function()
-      require("custom.plugins.configs.illuminate")
+      require("custom.configs.illuminate")
     end,
   },
   ["karb94/neoscroll.nvim"] = {
     opt = true,
     event = "BufReadPost",
     config = function()
-      require("custom.plugins.configs.neoscroll")
+      require("custom.configs.neoscroll")
     end,
   },
   ["hrsh7th/vim-eft"] = {
@@ -201,4 +205,5 @@ local plugins = {
     end,
   },
 }
+
 return plugins
