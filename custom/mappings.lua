@@ -41,23 +41,12 @@ M.nvimtree = {
 }
 
 M.general = {
-	n = {
-		["tt"] = { "<cmd> w<CR>", "Save file" },
-		["<LEFT>"] = { "<cmd> bp<CR>", "Switch to previous buffer" },
-		["<Right>"] = { "<cmd> bn<CR>", "Switch to next buffer", opts = { silent = true } },
-		["<A-j>"] = { "<cmd> m .+1<CR>==", "Move line down" },
-		["<A-k>"] = { "<cmd> m .-2<CR>==", "Move line up" },
-		["<Enter>"] = { "o<Esc>", "Insert blank line" },
-	},
-	i = {
-		["<C-s>"] = { "<cmd> w<CR>", "Save file" },
-		["<A-j>"] = { "<cmd> m .+1<CR>", "Move line down" },
-		["<A-k>"] = { "<cmd> m .-2<CR>", "Move line up" },
-	},
-	v = {
-		["<A-j>"] = { ":m '>+1<CR>gv=gv", "Move selection one line down", opts = { silent = true } },
-		["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move selection one line up", opts = { silent = true } },
-	},
+  n = {
+    ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
+    ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
+    ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
+    ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
+  }
 }
 
 M.focus = {
@@ -262,7 +251,15 @@ M.lspconfig = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>"}
+    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+    ["<leader>dus"] = {
+      function ()
+        local widgets = require('dap.ui.widgets');
+        local sidebar = widgets.sidebar(widgets.scopes);
+        sidebar.open();
+      end,
+      "Open debugging sidebar"
+    }
   }
 }
 

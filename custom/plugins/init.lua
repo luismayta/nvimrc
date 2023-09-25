@@ -1,6 +1,7 @@
 local override = require("custom.plugins.configs.override")
+local cmp = require "cmp"
 
-return {
+local plugins = {
   ["nvim-telescope/telescope.nvim"] = {
     module = "telescope",
     override_options = override.telescope.override_options,
@@ -35,8 +36,17 @@ return {
     end,
   },
 
-  -- IA
-  ["github/copilot.vim"] = { after = "nvim-lspconfig" },
+  -- AI
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = false,
+    opts = function ()
+      return require "custom.plugins.configs.copilot"
+    end,
+    config = function(_, opts)
+      require("copilot").setup(opts)
+    end
+  },
 
   -- UI
   ["stevearc/dressing.nvim"] = {},
@@ -191,3 +201,4 @@ return {
     end,
   },
 }
+return plugins
