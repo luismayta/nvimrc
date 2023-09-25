@@ -1,7 +1,6 @@
 ---@type ChadrcConfig
 local M = {}
 
-local override = require("custom.plugins.configs.override")
 local user_plugins = require("custom.plugins")
 
 -- Path to overriding theme and highlights files
