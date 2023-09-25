@@ -1,3 +1,4 @@
+---@type ChadrcConfig
 local M = {}
 
 local override = require("custom.plugins.configs.override")
@@ -9,7 +10,7 @@ M.options = {
 }
 
 M.ui = {
-  theme = "chadracula",
+  theme = "catppuccin",
   transparency = false,
 }
 
