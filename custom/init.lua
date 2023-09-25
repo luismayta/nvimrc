@@ -1,6 +1,12 @@
 require("custom.options")
 require("custom.viml_plugin_options")
 
+vim.g.dap_virtual_text = true
+vim.opt.colorcolumn = "80"
+
+-- Disable persistent undo
+vim.opt.undofile = false
+
 -- Remember cursor position when reopening files
 vim.api.nvim_exec(
 	[[
