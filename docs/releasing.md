@@ -1,7 +1,6 @@
 <!-- Space: Projects -->
 <!-- Parent: Nvimrc -->
 <!-- Title: Releasing Nvimrc -->
-
 <!-- Label: Nvimrc -->
 <!-- Label: Project -->
 <!-- Label: Releasing -->

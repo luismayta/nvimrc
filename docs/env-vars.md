@@ -1,13 +1,14 @@
 <!-- Space: Projects -->
 <!-- Parent: Nvimrc -->
-<!-- Title: Env Vars Nvimrc -->
-
+<!-- Title: EnvVars Nvimrc -->
 <!-- Label: Nvimrc -->
 <!-- Label: Project -->
-<!-- Label: Env Vars -->
+<!-- Label: EnvVars -->
 <!-- Include: disclaimer.md -->
 <!-- Include: ac:toc -->
 
 ---
 
 ## Env Vars
+
+### Application

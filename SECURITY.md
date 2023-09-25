@@ -1,7 +1,6 @@
 <!-- Space: Projects -->
 <!-- Parent: Nvimrc -->
 <!-- Title: Security Nvimrc -->
-
 <!-- Label: Nvimrc -->
 <!-- Label: Security -->
 <!-- Include: docs/disclaimer.md -->

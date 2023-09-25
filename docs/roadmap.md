@@ -1,7 +1,6 @@
 <!-- Space: Projects -->
 <!-- Parent: Nvimrc -->
 <!-- Title: Roadmap Nvimrc -->
-
 <!-- Label: Roadmap -->
 <!-- Include: disclaimer.md -->
 <!-- Include: ac:toc -->

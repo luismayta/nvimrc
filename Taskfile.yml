@@ -71,7 +71,7 @@ tasks:
     silent: true
 
   summary:
-    desc: 'Summary information'
+    desc: "Summary information"
     cmds:
       - echo Go available {{.GO}}
       - echo Python available {{.PYTHON}}
@@ -80,7 +80,7 @@ tasks:
     silent: true
 
   check:
-    desc: 'Check all dependencies'
+    desc: "Check all dependencies"
     deps:
       - python:check
       - changelog:check

@@ -14,7 +14,7 @@ email:
 # logo: docs/logo.png
 
 # License of this project
-license: 'LGPL-3.0'
+license: "LGPL-3.0"
 
 # Canonical GitHub repo
 github_repo: luismayta/nvimrc
@@ -27,6 +27,12 @@ badges:
   - name: Lint
     image: https://img.shields.io/github/workflow/status/luismayta/nvimrc/lint-code
     url: https://github.com/luismayta/nvimrc/actions?workflow=lint-code
+  - name: CI
+    image: https://img.shields.io/github/workflow/status/luismayta/nvimrc/ci
+    url: https://github.com/luismayta/nvimrc/actions?workflow=ci
+  - name: Test
+    image: https://img.shields.io/github/workflow/status/luismayta/nvimrc/test
+    url: https://github.com/luismayta/nvimrc/actions?workflow=test
   - name: pre-commit
     image: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
     url: https://github.com/pre-commit/pre-commit
@@ -57,5 +63,5 @@ usages:
   - docs/usage.md
 
 installation:
-  - 'docs/include/installation/curl.md'
-  - 'docs/include/installation/wget.md'
+  - "docs/include/installation/curl.md"
+  - "docs/include/installation/wget.md"
