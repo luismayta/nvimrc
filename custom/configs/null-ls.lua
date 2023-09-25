@@ -1,4 +1,5 @@
-local null_ls = require "null-ls"
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local null_ls = require("null-ls")
 
 local b = null_ls.builtins
 

@@ -1,14 +1,10 @@
 ---@type ChadrcConfig
 local M = {}
 
-local user_plugins = require("custom.plugins")
+-- local user_plugins = require("custom.plugins")
 
 -- Path to overriding theme and highlights files
-local highlights = require "custom.highlights"
-
-M.options = {
-  mapleader = ",",
-}
+local highlights = require("custom.highlights")
 
 M.ui = {
   theme = "catppuccin",
@@ -18,20 +14,21 @@ M.ui = {
   hl_add = highlights.add,
 }
 
-M.plugins = {
-
-  remove = {
-    "NvChad/nvterm",
-  },
-
-  override = {
-    ["NvChad/ui"] = override.ui,
-    ["lewis6991/gitsigns.nvim"] = override.gitsigns,
-    ["hrsh7th/nvim-cmp"] = override.cmp,
-  },
-
-  user = user_plugins,
-}
+M.plugins = "custom.plugins"
+-- M.plugins = {
+--
+--   remove = {
+--     "NvChad/nvterm",
+--   },
+--
+--   override = {
+--     ["NvChad/ui"] = override.ui,
+--     ["lewis6991/gitsigns.nvim"] = override.gitsigns,
+--     ["hrsh7th/nvim-cmp"] = override.cmp,
+--   },
+--
+--   user = user_plugins,
+-- }
 
 M.mappings = require("custom.mappings")
 

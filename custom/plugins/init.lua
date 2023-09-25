@@ -3,10 +3,11 @@ local overrides = require("custom.configs.overrides")
 ---@type NvPluginSpec[]
 local plugins = {
   -- Override plugin definition options
-
+  -- theme
+  ["catppuccin/nvim"] = {},
   ["nvim-telescope/telescope.nvim"] = {
     module = "telescope",
-    override_options = overrides.telescope.override_options,
+    opts = overrides.telescope,
   },
   -- TOOLS
   ["skywind3000/asynctasks.vim"] = {
@@ -23,7 +24,7 @@ local plugins = {
   -- LSP
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
   {
     "neovim/nvim-lspconfig",
@@ -32,13 +33,13 @@ local plugins = {
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
-          require "custom.configs.null-ls"
+          require("custom.configs.null-ls")
         end,
       },
     },
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require("plugins.configs.lspconfig")
+      require("custom.configs.lspconfig")
     end, -- Override to setup mason-lspconfig
   },
 
@@ -46,7 +47,7 @@ local plugins = {
     after = "nvim-lspconfig",
     requires = { "nvim-lua/plenary.nvim" },
     opts = function()
-      return require("custom.plugins.configs.null-ls")
+      return require("custom.configs.null-ls")
     end,
   },
 
@@ -65,7 +66,7 @@ local plugins = {
   --   "zbirenbaum/copilot.lua",
   --   lazy = false,
   --   opts = function ()
-  --     return require "custom.plugins.configs.copilot"
+  --     return require "custom.configs.copilot"
   --   end,
   --   config = function(_, opts)
   --     require("copilot").setup(opts)
@@ -89,8 +90,6 @@ local plugins = {
   },
   ["goolord/alpha-nvim"] = {
     requires = { "kyazdani42/nvim-web-devicons" },
-    disable = false,
-    override_options = require("custom.plugins.alpha"),
   },
   ["folke/which-key.nvim"] = { disable = true },
   ["mbbill/undotree"] = {
@@ -102,14 +101,16 @@ local plugins = {
     opt = true,
     event = { "BufReadPost" },
     config = function()
-      require("custom.plugins.configs.scrollview")
+      require("custom.configs.scrollview")
     end,
   },
   -- SRE
   ["hashivim/vim-terraform"] = {},
 
   -- Git
-  ["lewis6991/gitsigns.nvim"] = { override_options = overrides.gitsigns },
+  ["lewis6991/gitsigns.nvim"] = {
+    opts = overrides.gitsigns,
+  },
   ["tpope/vim-fugitive"] = {},
 
   -- Editor
