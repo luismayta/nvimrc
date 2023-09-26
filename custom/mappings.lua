@@ -275,4 +275,22 @@ M.dap_python = {
   }
 }
 
+M.dap_go = {
+  plugin = true,
+  n = {
+    ["<leader>dgr"] = {
+      function()
+        require('dap-go').debug_test()
+      end,
+      "Debug go test"
+    },
+    ["<leader>dgl"] = {
+      function()
+        require('dap-go').debug_last()
+      end,
+      "Debug last go test"
+    }
+  }
+}
+
 return M
