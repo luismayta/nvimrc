@@ -15,20 +15,6 @@ M.ui = {
 }
 
 M.plugins = "custom.plugins"
--- M.plugins = {
---
---   remove = {
---     "NvChad/nvterm",
---   },
---
---   override = {
---     ["NvChad/ui"] = override.ui,
---     ["lewis6991/gitsigns.nvim"] = override.gitsigns,
---     ["hrsh7th/nvim-cmp"] = override.cmp,
---   },
---
---   user = user_plugins,
--- }
 
 M.mappings = require("custom.mappings")
 

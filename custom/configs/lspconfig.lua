@@ -2,6 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
+local util = require "lspconfig/util"
 
 -- lspservers with default config
 local servers = { "clangd", "pyright", "html", "cssls", "tsserver", "clangd" }
@@ -32,19 +33,26 @@ lspconfig.pylsp.setup({
   },
 })
 
-lspconfig.terraformls.setup({
+lspconfig.terraformls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "terraform", "hcl" },
-  cmd = { "terraform-ls", "serve" },
-})
+  cmd = {"terraform-ls", "serve"},
+  root_dir = util.root_pattern(".terraform", ".git"),
+}
 
 lspconfig.gopls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { "gopls", "serve" },
+  cmd = { "gopls"},
+  cmd_env = {
+    GOFLAGS = "-tags=test,e2e_test,integration_test,acceptance_test",
+  },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
       analyses = {
         unusedparams = true,
       },
