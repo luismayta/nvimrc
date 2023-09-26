@@ -59,7 +59,7 @@ torch = "^2.0.1"
 
 [tool.poetry.group.lint.dependencies]
 pre-commit = "^3.3.3"
-ruff = "^0.0.286"
+ruff = "^0.0.291"
 types-toml = "^0.10.8.7"
 black = "^23.7.0"
 
