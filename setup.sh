@@ -55,7 +55,6 @@ message_success() {
 
 nvim::install::dependences() {
   message_info "Installing dependencies for ${NVIM_PACKAGE_NAME}"
-  mkdir -p "${NVIM_CONFIG_PATH}"
 
   # Install neovim-python; vim-plug requires neovim-python
   if type -p pip > /dev/null; then
@@ -148,9 +147,9 @@ nvim::post_install() {
       return
   }
 
-  ln -fs "${NVIMRC_CUSTOM_PATH}" "${NVIM_CUSTOM_PATH}"
-
   nvchad::install
+
+  ln -fs "${NVIMRC_CUSTOM_PATH}" "${NVIM_CUSTOM_PATH}"
 
   message_success "${NVIM_MESSAGE_DONE}"
 
