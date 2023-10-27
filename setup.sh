@@ -19,13 +19,11 @@ HOME_CONFIG_PATH="${HOME}/.config"
 
 # nvimrc
 NVIMRC_PATH="${HOME}/.nvimrc"
-NVIMRC_LUA_PATH="${NVIMRC_PATH}/nvim/lua"
-NVIMRC_CUSTOM_PATH="${NVIMRC_LUA_PATH}/custom"
+NVIMRC_CUSTOM_PATH="${NVIMRC_PATH}/custom"
 
 # nvim
 NVIM_CONFIG_PATH="${HOME_CONFIG_PATH}/nvim"
 NVIM_PACKAGE_NAME="nvim"
-NVIM_ROOT_PATH="${HOME}/.nvim"
 
 PYTHON_PACKAGES_NVIM=(
   msgpack
@@ -142,7 +140,7 @@ nvim::post_install() {
 
   message_info "Cloning NVIM from ${NVIM_REPO_HTTPS}"
 
-  env git clone --depth=1 "${NVIM_REPO_HTTPS}" --branch main "${NVIM_ROOT_PATH}" || {
+  env git clone --depth=1 "${NVIM_REPO_HTTPS}" --branch main "${NVIMRC_PATH}" || {
       message_warning "git clone of NVIM repo failed."
       return
   }
