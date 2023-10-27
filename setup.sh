@@ -11,7 +11,7 @@ NVCHAD_REPOSITORY_URL="https://github.com/NvChad/NvChad"
 
 
 # nvim
-NVIM_MESSAGE_BREW="Please install brew or use antibody bundle luismayta/zsh-brew branch:develop"
+NVIM_MESSAGE_BREW="Please install brew or use antibody bundle luismayta/zsh-brew"
 NVIM_MESSAGE_DONE="Keep calm and use nvim"
 NVIM_REPO_HTTPS="https://github.com/luismayta/nvimrc.git"
 
@@ -135,8 +135,6 @@ nvim::post_install() {
       nvim::backup::config
   fi
 
-  nvchad::install
-
   # Prevent the cloned repository from having insecure permissions. Failing to do
   # so causes compinit() calls to fail with "command not found: compdef" errors
   # for users with insecure umasks (e.g., "002", allowing group writability). Note
@@ -152,6 +150,8 @@ nvim::post_install() {
   }
 
   ln -fs "${NVIMRC_CUSTOM_PATH}" "${NVIM_CUSTOM_PATH}"
+
+  nvchad::install
 
   message_success "${NVIM_MESSAGE_DONE}"
 
