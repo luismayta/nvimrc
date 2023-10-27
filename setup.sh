@@ -9,9 +9,8 @@ NORMAL="\033[0m"
 # nvchad
 NVCHAD_REPOSITORY_URL="https://github.com/NvChad/NvChad"
 
-
 # nvim
-NVIM_MESSAGE_BREW="Please install brew or use antibody bundle luismayta/zsh-brew"
+NVIM_MESSAGE_BREW="Please install Homebrew or use antibody bundle luismayta/zsh-brew"
 NVIM_MESSAGE_DONE="Keep calm and use nvim"
 NVIM_REPO_HTTPS="https://github.com/luismayta/nvimrc.git"
 
@@ -55,7 +54,7 @@ message_success() {
 }
 
 nvim::install::dependences() {
-  message_info "Installing dependences ${NVIM_PACKAGE_NAME}"
+  message_info "Installing dependencies for ${NVIM_PACKAGE_NAME}"
   mkdir -p "${NVIM_CONFIG_PATH}"
 
   # Install neovim-python; vim-plug requires neovim-python
@@ -88,14 +87,14 @@ nvim::install::dependences() {
   hash wget >/dev/null 2>&1 || {
       brew install wget
   }
-  message_success "Installed dependences ${NVIM_PACKAGE_NAME}"
+  message_success "Installed dependencies for ${NVIM_PACKAGE_NAME}"
 }
 
 # nvim::backup::config - backup configuration NVIM app
 nvim::backup::config() {
-  message_info "You will see your old ${NVIM_CONFIG_PATH} as ${NVIM_CONFIG_PATH}/NVIM.bak"
-  mv "${NVIM_CONFIG_PATH}" "${NVIM_CONFIG_PATH}/NVIM.bak"
-  message_success "backup config ${NVIM_PACKAGE_NAME}"
+  message_info "You will see your old ${NVIM_CONFIG_PATH} as ${HOME_CONFIG_PATH}/NVIM.bak"
+  mv "${NVIM_CONFIG_PATH}" "${HOME_CONFIG_PATH}/NVIM.bak"
+  message_success "Backup config for ${NVIM_PACKAGE_NAME}"
 }
 
 # nvim::install - install NVIM app
@@ -113,11 +112,11 @@ nvim::install() {
 }
 
 nvim::clean() {
-  message_info "start clean configurations ${NVIM_PACKAGE_NAME}"
-  rm -rf "${HOME_CONFIG_PATH}"/nvim
+  message_info "Start cleaning configurations for ${NVIM_PACKAGE_NAME}"
+  rm -rf "${HOME_CONFIG_PATH}/nvim"
   rm -rf ~/.local/share/nvim
   rm -rf ~/.cache/nvim
-  message_success "finish clean configurations ${NVIM_PACKAGE_NAME}"
+  message_success "Finished cleaning configurations for ${NVIM_PACKAGE_NAME}"
 }
 
 nvchad::install() {
@@ -127,11 +126,11 @@ nvchad::install() {
 }
 
 nvim::post_install() {
-  message_info "Post Install ${NVIM_PACKAGE_NAME}"
+  message_info "Post Install for ${NVIM_PACKAGE_NAME}"
 
   message_info "Looking for an existing NVIM config..."
   if [ -d "${NVIM_CONFIG_PATH}" ]; then
-      message_warning "Found ${NVIM_CONFIG_PATH}"
+      message_warning "Found existing ${NVIM_CONFIG_PATH}"
       nvim::backup::config
   fi
 
