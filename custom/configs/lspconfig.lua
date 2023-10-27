@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
 
 -- lspservers with default config
-local servers = { "clangd", "pyright", "html", "cssls", "tsserver", "clangd" }
+local servers = { "clangd","pylsp", "pyright", "html", "cssls", "tsserver" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
