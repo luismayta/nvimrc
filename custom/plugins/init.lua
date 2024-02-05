@@ -209,7 +209,8 @@ local plugins = {
       "hrsh7th/nvim-cmp",
     },
   },
-
+  -- graphql
+  {"jparise/vim-graphql", lazy = false},
   -- python
   {"ChristianChiarulli/swenv.nvim", lazy = false},
   {"nvim-neotest/neotest", lazy = false},
