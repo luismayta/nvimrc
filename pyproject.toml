@@ -7,7 +7,7 @@ license = "LGPL-3.0"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "<3.13"
+python = "^3.8,<3.12"
 boto3 = "^1.28.53"
 
 [tool.poetry.group.dev]
@@ -44,10 +44,10 @@ faker = "^19.3.1"
 mock = "^5.1.0"
 pytest-mock = "^3.11.1"
 pytest = "^7.4.0"
-pytest-cov = "^4.1.0"
+pytest-cov = "*"
 freezegun = "^1.2.2"
 responses = "^0.24.0"
-pytest-asyncio = "^0.23.0"
+pytest-asyncio = "^0.21.1"
 pyhamcrest = "^2.0.4"
 
 [tool.poetry.group.test_integration]
