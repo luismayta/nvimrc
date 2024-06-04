@@ -22,6 +22,9 @@ local plugins = {
       require("trouble").setup()
     end,
   },
+  { "taybart/b64.nvim",
+    commands = { "B64Encode", "B64Decode" }
+  },
   -- LSP
   {
     "williamboman/mason.nvim",
@@ -229,6 +232,7 @@ local plugins = {
       require("core.utils").load_mappings("dap_python")
     end,
   },
+  -- go
   {
     "leoluz/nvim-dap-go",
     ft = "go",
