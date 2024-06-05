@@ -1,0 +1,387 @@
+--
+-- M.lspconfig = {
+-- 	plugin = true,
+--
+-- 	n = {
+-- 		["gD"] = {
+-- 			function()
+-- 				vim.lsp.buf.declaration()
+-- 			end,
+-- 			"lsp declaration",
+-- 		},
+--
+-- 		["gd"] = {
+-- 			function()
+-- 				vim.lsp.buf.definition()
+-- 			end,
+-- 			"lsp definition",
+-- 		},
+--
+-- 		["K"] = {
+-- 			function()
+-- 				vim.cmd([[Lspsaga hover_doc]])
+-- 			end,
+-- 			"lsp hover",
+-- 		},
+--
+-- 		["gi"] = {
+-- 			function()
+-- 				vim.lsp.buf.implementation()
+-- 			end,
+-- 			"lsp implementation",
+-- 		},
+--
+-- 		["<leader>ls"] = {
+-- 			function()
+-- 				vim.lsp.buf.signature_help()
+-- 			end,
+-- 			"lsp signature_help",
+-- 		},
+--
+-- 		["<leader>D"] = {
+-- 			function()
+-- 				vim.lsp.buf.type_definition()
+-- 			end,
+-- 			"lsp definition type",
+-- 		},
+--
+-- 		["<leader>ra"] = {
+-- 			function()
+-- 				require("nvchad_ui.renamer").open()
+-- 			end,
+-- 			"lsp rename",
+-- 		},
+--
+-- 		["<leader>ca"] = {
+-- 			function()
+-- 				vim.cmd([[Lspsaga code_action]])
+-- 			end,
+-- 			"lsp code_action",
+-- 		},
+--
+-- 		["gr"] = {
+-- 			function()
+-- 				vim.cmd([[Lspsaga lsp_finder]])
+-- 			end,
+-- 			"lsp references",
+-- 		},
+--
+-- 		["<leader>f"] = {
+-- 			function()
+-- 				vim.diagnostic.open_float()
+-- 			end,
+-- 			"floating diagnostic",
+-- 		},
+--
+-- 		["<leader>ld"] = {
+-- 			function()
+-- 				vim.cmd([[Lspsaga show_line_diagnostics]])
+-- 			end,
+-- 			"show line diagnostics",
+-- 		},
+--
+-- 		["<leader>cd"] = {
+-- 			function()
+-- 				vim.cmd([[Lspsaga show_cursor_diagnostics]])
+-- 			end,
+-- 			"show line diagnostics",
+-- 		},
+--
+-- 		["[d"] = {
+-- 			function()
+-- 				vim.diagnostic.goto_prev()
+-- 			end,
+-- 			"goto prev",
+-- 		},
+--
+-- 		["]d"] = {
+-- 			function()
+-- 				vim.diagnostic.goto_next()
+-- 			end,
+-- 			"goto_next",
+-- 		},
+--
+-- 		-- ["<leader>q"] = "",
+--
+-- 		["<leader>o"] = {
+-- 			function()
+-- 				vim.cmd([[LSoutlineToggle]])
+-- 			end,
+-- 			"Toggle symbol outline",
+-- 		},
+--
+-- 		["<leader>fm"] = {
+-- 			function()
+-- 				vim.lsp.buf.format({ async = true })
+-- 			end,
+-- 			"lsp formatting",
+-- 		},
+--
+-- 		["<leader>wa"] = {
+-- 			function()
+-- 				vim.lsp.buf.add_workspace_folder()
+-- 			end,
+-- 			"add workspace folder",
+-- 		},
+--
+-- 		["<leader>wr"] = {
+-- 			function()
+-- 				vim.lsp.buf.remove_workspace_folder()
+-- 			end,
+-- 			"remove workspace folder",
+-- 		},
+--
+-- 		["<leader>wl"] = {
+-- 			function()
+-- 				print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+-- 			end,
+-- 			"list workspace folders",
+-- 		},
+-- 	},
+-- }
+--
+-- M.dap = {
+--   plugin = true,
+--   n = {
+--     ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+--     ["<leader>dus"] = {
+--       function ()
+--         local widgets = require('dap.ui.widgets');
+--         local sidebar = widgets.sidebar(widgets.scopes);
+--         sidebar.open();
+--       end,
+--       "Open debugging sidebar"
+--     }
+--   }
+-- }
+--
+-- M.dap_python = {
+--   plugin = true,
+--   n = {
+--     ["<leader>dpr"] = {
+--       function()
+--         require('dap-python').test_method()
+--       end
+--     }
+--   }
+-- }
+--
+-- M.dap_go = {
+--   plugin = true,
+--   n = {
+--     ["<leader>dgr"] = {
+--       function()
+--         require('dap-go').debug_test()
+--       end,
+--       "Debug go test"
+--     },
+--     ["<leader>dgl"] = {
+--       function()
+--         require('dap-go').debug_last()
+--       end,
+--       "Debug last go test"
+--     }
+--   }
+-- }
+
+-- return M
+
+---
+
+local utils = require "gale.utils"
+local map = vim.keymap.set
+local opts = { silent = true }
+
+map("n", ";", ":", { desc = "Enter CMD mode" })
+map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
+map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "Copy file content" })
+map("n", "<C-z>", "<NOP>", { desc = "Unmap force closing with <C-z>" })
+map("n", "<leader><F4>", "<cmd>stop<CR>", { desc = "Stop NVIM" })
+map("n", "z-", "z^", { desc = "Remap z^ into z- to match z+" })
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear search highlights" })
+map("n", "<leader>cs", "<cmd><CR>", { desc = "Clear statusline" })
+map("n", "<leader>cm", "<cmd>mes clear<CR>", { desc = "Clear messages" })
+-- https://github.com/neovim/neovim/issues/2048
+map("i", "<A-BS>", "<C-w>", { desc = "Remove word" })
+map("v", "y", "ygv<Esc>", { desc = "Yank preventing cursor from jumping back to where selection started" })
+map("n", "<leader>ol", function()
+  vim.ui.open(vim.fn.expand "%:p:h")
+end, { desc = "Open file location in file explorer" })
+
+-- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
+map("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
+map("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+map("n", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+map("n", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
+
+-- Buffer motions
+map("i", "<C-b>", "<ESC>^i", { desc = "Go to beginning of line" })
+map("i", "<C-e>", "<End>", { desc = "Go to end of line" })
+map("i", "<C-A-h>", "<Left>", { desc = "Go to left" })
+map("i", "<C-A-l>", "<Right>", { desc = "Go to right" })
+map("i", "<C-A-j>", "<Down>", { desc = "Go down" })
+map("i", "<C-A-k>", "<Up>", { desc = "Go up" })
+map("n", "<leader>gm", "<cmd>exe 'normal! ' . line('$')/2 . 'G'<CR>", { desc = "Go to middle of the file" })
+
+-- Move lines up/down
+map("n", "<A-Down>", ":m .+1<CR>", { desc = "Move line down" })
+map("n", "<A-j>", ":m .+1<CR>", { desc = "Move line down" })
+map("n", "<A-Up>", ":m .-2<CR>", { desc = "Move line up" })
+map("n", "<A-k>", ":m .-2<CR>", { desc = "Move line up" })
+map("i", "<A-Down>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
+map("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
+map("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
+map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
+map("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+map("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+
+-- Switch buffers
+map("n", "<C-h>", "<C-w>h", { desc = "Buffer switch left" })
+map("n", "<C-l>", "<C-w>l", { desc = "Buffer switch right" })
+map("n", "<C-j>", "<C-w>j", { desc = "Buffer switch down" })
+map("n", "<C-k>", "<C-w>k", { desc = "Buffer switch up" })
+
+-- Quick resize pane
+map("n", "<C-A-h>", "5<C-w>>", { desc = "Window increase width by 5" })
+map("n", "<C-A-l>", "5<C-w><", { desc = "Window decrease width by 5" })
+map("n", "<C-A-k>", "5<C-w>+", { desc = "Window increase height by 5" })
+map("n", "<C-A-j>", "5<C-w>-", { desc = "Window decrease height by 5" })
+
+-- Togglers
+map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle line number" })
+map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle relative number" })
+map("n", "<leader>ih", "<cmd>ToggleInlayHints<CR>", { desc = "Toggle inlay hints" })
+map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
+
+-- Term
+map("t", "<C-x>", "<C-\\><C-N>", { desc = "Term escape terminal mode" })
+
+map({ "n", "t" }, "<A-v>", function()
+  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+end, { desc = "Term toggle vertical split" })
+
+map({ "n", "t" }, "<C-A-v>", function()
+  require("nvchad.term").toggle {
+    pos = "vsp",
+    id = "vtoggleTermLoc",
+    cmd = "cd " .. vim.fn.expand "%:p:h",
+  }
+end, { desc = "Term toggle vertical split in buffer location" })
+
+map({ "n", "t" }, "<A-h>", function()
+  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+end, { desc = "Term toggle horizontal split" })
+
+map({ "n", "t" }, "<C-A-h>", function()
+  require("nvchad.term").toggle {
+    pos = "sp",
+    id = "htoggleTermLoc",
+    cmd = "cd " .. vim.fn.expand "%:p:h",
+  }
+end, { desc = "Term toggle horizontal split in buffer location" })
+
+map({ "n", "t" }, "<A-i>", function()
+  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
+end, { desc = "Term toggle floating" })
+
+map({ "n", "t" }, "<C-A-i>", function()
+  require("nvchad.term").toggle {
+    pos = "float",
+    id = "floatTermLoc",
+    cmd = "cd " .. vim.fn.expand "%:p:h",
+  }
+end, { desc = "Term toggle floating in buffer location" })
+
+-- TreeSitter
+map({ "n", "v" }, "<leader>it", function()
+  utils.toggle_inspect_tree()
+end, { desc = "TreeSitter toggle inspect tree" })
+
+map("n", "<leader>ii", "<cmd>Inspect<CR>", { desc = "TreeSitter inspect under cursor" })
+
+-- LSP
+map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
+
+-- Utils
+map("n", "gh", function()
+  utils.go_to_github_link()
+end, { desc = "Go to GitHub link generated from string" })
+
+-- focus
+
+map("n", "<leader>h", ":FocusSplitLeft<CR>", { desc = "move buffer left" })
+map("n", "<leader>j", ":FocusSplitDown<CR>", { desc = "move buffer down" })
+map("n", "<leader>j", ":FocusSplitUP<CR>", { desc = "move buffer up" })
+map("n", "<leader>k", ":FocusSplitRight<CR>", { desc = "move buffer right" })
+map("n", "<leader>l", ":FocusSplitLeft<CR>", { desc = "move buffer left" })
+
+map("n", "<C-x>1", ":FocusMaximise<CR>", { desc = "FocusMaximise" })
+map("n", "<C-x>2", ":FocusSplitDown<CR>", { desc = "FocusSplitDown" })
+map("n", "<C-x>3", ":FocusSplitRight<CR>", { desc = "FocusSplitRight" })
+
+--- Tabufline
+map("n", "<Tab>", function()
+  require("nvchad.tabufline").next()
+end, { desc = "Buffer go to next" })
+
+map("n", "<S-Tab>", function()
+  require("nvchad.tabufline").prev()
+end, { desc = "Buffer go to prev" })
+
+map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "Buffer new" })
+
+map("n", "<leader>x", function()
+  require("nvchad.tabufline").close_buffer()
+end, { desc = "Buffer close" })
+
+map("n", "<C-Up>", function()
+  require("colorify.tools").lighten(2)
+end)
+
+map("n", "<C-Down>", function()
+  require("colorify.tools").lighten(-2)
+end)
+
+map("n", "<leader>h", ":FocusSplitLeft<CR>", { desc = "move buffer left" })
+-- Define mappings for Telescope
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
+map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
+map("n", "<leader>fr", "<cmd>Telescope resume<CR>", opts)
+map("n", "<leader>fc", "<cmd>Telescope commands<CR>", opts)
+map("n", "<leader>fs", "<cmd>Telescope treesitter<CR>", opts)
+map("n", "<leader>fl", "<cmd>Telescope<CR>", opts)
+map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", opts)
+map("n", "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
+
+-- Mappings for nvim-tree
+map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", opts)
+
+-- Mappings for general navigation with Tmux
+map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", opts)
+map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", opts)
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", opts)
+map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", opts)
+
+-- Mappings for Copilot
+map("i", "<C-a>", "copilot#Accept()", { silent = true, expr = true, script = true })
+
+-- Mappings for LSP config
+map("n", "<leader>rn", function()
+  require("nvchad.ui.renamer").open()
+end, { desc = "   lsp rename" })
+
+-- Mappings for Trouble
+map("n", "<leader>dd", "<cmd>TroubleToggle<CR>", opts)
+map("n", "<leader>dw", "<cmd>Trouble workspace_diagnostics<CR>", opts)
+map("n", "<leader>df", "<cmd>Trouble document_diagnostics<CR>", opts)
+map("n", "<leader>dl", "<cmd>Trouble loclist<CR>", opts)
+map("n", "<leader>dq", "<cmd>Trouble quickfix<CR>", opts)
+map("n", "<leader>dr", "<cmd>Trouble lsp_references<CR>", opts)
+
+-- Gitsigns
+map("n", "<leader>bl", "<cmd>Gitsigns blame_line<CR>", { desc = "Gitsigns blame line" })
+map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", { desc = "Gitsigns toggle deleted" })

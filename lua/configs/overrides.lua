@@ -21,6 +21,9 @@ M.telescope = {
 
 M.gitsigns = {
   current_line_blame = true,
+  preview_config = {
+    border = "rounded",
+  },
 }
 
 M.treesitter = {
@@ -45,6 +48,7 @@ M.treesitter = {
 }
 
 M.mason = {
+  ui = { border = "rounded" },
   ensure_installed = {
     -- DevOps / SRE
     "ansible-language-server",
@@ -188,8 +192,7 @@ M.nvimtree = {
 }
 
 M.blankline = {
-  char = "▏",
-  context_char = "▏",
+  -- char = "▏",
   use_treesitter = true,
 }
 
