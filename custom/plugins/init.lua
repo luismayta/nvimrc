@@ -60,23 +60,65 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     opts = overrides.blankline,
   },
+  -- Languages
+  -- rust
+  {
+		"rust-lang/rust.vim",
+		ft = "rust",
+		init = function()
+			vim.g.rustfmt_autosave = 1
+			vim.g.rust_clip_command = "xclip -selection clipboard"
+		end,
+	},
+	{
+		"simrat39/rust-tools.nvim",
+		ft = "rust",
+		dependencies = "neovim/nvim-lspconfig",
+		opts = function()
+			return require("custom.configs.rust-tools")
+		end,
+		config = function(_, opts)
+			require("rust-tools").setup(opts)
+		end,
+	},
+	{
+		"saecki/crates.nvim",
+		ft = { "rust", "toml" },
+		config = function(_, opts)
+			local crates = require("crates")
+			crates.setup(opts)
+			crates.show()
+		end,
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		opts = function()
+			local M = require("plugins.configs.cmp")
+			table.insert(M.sources, { name = "crates" })
+			return M
+		end,
+	},
   -- AI
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function ()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-        filetypes = {
-          go = true,
-          rust = true,
-        },
-      })
-    end,
-  },
-
+		"Exafunction/codeium.vim",
+		lazy = false,
+		config = function()
+      -- stylua: ignore start
+			vim.keymap.set("i", "<c-g>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true })
+			vim.keymap.set("i", "<c-;>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true })
+			vim.keymap.set("i", "<c-,>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true })
+			vim.keymap.set("i", "<c-x>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true })
+      -- stylua: ignore end
+		end,
+	},
   -- UI
   { "stevearc/dressing.nvim", lazy = false },
   {
@@ -133,20 +175,6 @@ local plugins = {
     end,
   },
   {"wakatime/vim-wakatime", lazy = false},
-
-
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      {
-        "zbirenbaum/copilot-cmp",
-        config = function ()
-          require("copilot_cmp").setup()
-        end
-      }
-    },
-    opts = overrides.nvimcmp,
-  },
   {"phaazon/hop.nvim",
     lazy = false,
     event = "BufReadPost",
@@ -155,13 +183,6 @@ local plugins = {
       require("custom.configs.hop")
     end,
   },
-  -- {"mg979/vim-visual-multi",
-  --   lazy = true,
-  --   event = "BufReadPost",
-  --   setup = function()
-  --     require("custom.configs.visual-multi")
-  --   end,
-  -- },
   {"tpope/vim-surround",
     lazy = true,
     event = "BufReadPost",
@@ -191,7 +212,8 @@ local plugins = {
       "hrsh7th/nvim-cmp",
     },
   },
-
+  -- graphql
+  {"jparise/vim-graphql", lazy = false},
   -- python
   {"ChristianChiarulli/swenv.nvim", lazy = false},
   {"nvim-neotest/neotest", lazy = false},
