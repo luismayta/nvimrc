@@ -1,5 +1,8 @@
 require "nvchad.options"
 
+-- local o = vim.o
+-- o.cursorlineopt ='both' -- to enable cursorline!
+
 local g = {
   dap_virtual_text = true,
   bookmark_sign = "",

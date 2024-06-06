@@ -1,7 +1,8 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 -- lspservers with default config
@@ -10,6 +11,7 @@ local servers = { "clangd","pylsp", "pyright", "html", "cssls", "tsserver" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
     on_attach = on_attach,
+    on_init = on_init,
     capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
@@ -19,6 +21,7 @@ end
 
 lspconfig.pylsp.setup({
   on_attach = on_attach,
+    on_init = on_init,
   capabilities = capabilities,
   filetypes = { "python" },
   settings = {
@@ -35,6 +38,7 @@ lspconfig.pylsp.setup({
 
 lspconfig.terraformls.setup {
   on_attach = on_attach,
+    on_init = on_init,
   capabilities = capabilities,
   cmd = {"terraform-ls", "serve"},
   root_dir = util.root_pattern(".terraform", ".git"),
@@ -42,6 +46,7 @@ lspconfig.terraformls.setup {
 
 lspconfig.gopls.setup({
   on_attach = on_attach,
+    on_init = on_init,
   capabilities = capabilities,
   cmd = { "gopls"},
   cmd_env = {
@@ -71,10 +76,12 @@ lspconfig.gopls.setup({
   },
 })
 
--- use null ls for ts format
+-- typescript
 lspconfig.tsserver.setup({
   on_attach = function(client)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end,
+  on_init = on_init,
+  capabilities = capabilities,
 })

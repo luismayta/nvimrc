@@ -187,8 +187,8 @@
 -- return M
 
 ---
+require "nvchad.mappings"
 
-local utils = require "gale.utils"
 local map = vim.keymap.set
 local opts = { silent = true }
 
@@ -304,11 +304,6 @@ map("n", "<leader>ii", "<cmd>Inspect<CR>", { desc = "TreeSitter inspect under cu
 
 -- LSP
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
-
--- Utils
-map("n", "gh", function()
-  utils.go_to_github_link()
-end, { desc = "Go to GitHub link generated from string" })
 
 -- focus
 

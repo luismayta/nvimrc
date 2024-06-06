@@ -3,7 +3,6 @@ return {
   { "NvChad/nvterm", enabled = false },
   -- theme
   { "catppuccin/nvim", lazy = false },
-  -- { import = "plugins.spec.autosession" },
   -- { import = "plugins.spec.better-escape" },
   { import = "plugins.spec.ccc" },
   { import = "plugins.spec.codecompanion" },
@@ -15,9 +14,8 @@ return {
   { import = "plugins.spec.trouble" },
   { import = "plugins.spec.b64" },
 
-  { import = "plugins.spec.comment" },
+  -- { import = "plugins.spec.comment" },
   { import = "plugins.spec.crates" },
-  -- { import = "plugins.spec.dap-python" },
   { import = "plugins.spec.dap-ui" },
   { import = "plugins.spec.dap-virtual-text" },
   { import = "plugins.spec.diffview" },
@@ -34,7 +32,7 @@ return {
   { import = "plugins.spec.goto-preview" },
   { import = "plugins.spec.grug-far" },
   { import = "plugins.spec.harpoon" },
-  { import = "plugins.spec.hop" },
+  -- { import = "plugins.spec.hop" },
   { import = "plugins.spec.hover" },
   { import = "plugins.spec.lsp-signature" },
   { import = "plugins.spec.matchup" },
@@ -132,7 +130,7 @@ return {
   { import = "plugins.spec.treesitter-textobjects" },
   { import = "plugins.spec.ts-autotag" },
   { import = "plugins.spec.ts-context-commentstring" },
-  { import = "plugins.spec.tstools" },
+  -- { import = "plugins.spec.tstools" },
   { import = "plugins.spec.undo-tree" },
   { import = "plugins.spec.vim-astro" },
   { import = "plugins.spec.zen-mode" },
@@ -188,13 +186,13 @@ return {
     end,
   },
   -- Editor
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("todo-comments").setup()
-    end,
-  },
+  -- {
+  --   "folke/todo-comments.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     require("todo-comments").setup()
+  --   end,
+  -- },
   { "wakatime/vim-wakatime", lazy = false },
   {
     "phaazon/hop.nvim",
