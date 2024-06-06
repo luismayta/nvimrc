@@ -192,7 +192,6 @@ M.nvimtree = {
 }
 
 M.blankline = {
-  -- char = "▏",
   use_treesitter = true,
 }
 

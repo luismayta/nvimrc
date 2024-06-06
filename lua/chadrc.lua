@@ -6,8 +6,6 @@ local M = {}
 vim.cmd "highlight link St_HarpoonInactive StText"
 vim.cmd "highlight link St_HarpoonActive St_LspHints"
 
--- local user_plugins = require("plugins")
-
 -- Path to overriding theme and highlights files
 local highlights = require("highlights")
 
