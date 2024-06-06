@@ -6,9 +6,6 @@ YELLOW="\033[0;33m"
 BLUE="\033[0;36m"
 NORMAL="\033[0m"
 
-# nvchad
-NVCHAD_REPOSITORY_URL="https://github.com/NvChad/NvChad"
-
 # nvim
 NVIM_MESSAGE_BREW="Please install Homebrew or use antibody bundle luismayta/zsh-brew"
 NVIM_MESSAGE_DONE="Keep calm and use nvim"
@@ -16,10 +13,6 @@ NVIM_REPO_HTTPS="https://github.com/luismayta/nvimrc.git"
 
 # home
 HOME_CONFIG_PATH="${HOME}/.config"
-
-# nvimrc
-NVIMRC_PATH="${HOME}/.nvimrc"
-NVIMRC_CUSTOM_PATH="${NVIMRC_PATH}/custom"
 
 # nvim
 NVIM_CONFIG_PATH="${HOME_CONFIG_PATH}/nvim"
@@ -30,9 +23,6 @@ PYTHON_PACKAGES_NVIM=(
   pynvim
   jedi
 )
-
-NVIM_LUA_PATH="${NVIM_CONFIG_PATH}/lua"
-NVIM_CUSTOM_PATH="${NVIM_LUA_PATH}/custom"
 
 message_error() {
   printf "${RED}%s${NORMAL}\n" "[ERROR]: ${1}"
@@ -110,16 +100,10 @@ nvim::install() {
 
 nvim::clean() {
   message_info "Start cleaning configurations for ${NVIM_PACKAGE_NAME}"
-  rm -rf "${HOME_CONFIG_PATH}/nvim"
+  rm -rf "${NVIM_CONFIG_PATH}"
   rm -rf ~/.local/share/nvim
   rm -rf ~/.cache/nvim
   message_success "Finished cleaning configurations for ${NVIM_PACKAGE_NAME}"
-}
-
-nvchad::install() {
-  message_info "Install nvchad"
-  git clone "${NVCHAD_REPOSITORY_URL}" "${NVIM_CONFIG_PATH}" --depth 1 && nvim
-  message_success "Installed nvchad"
 }
 
 nvim::post_install() {
@@ -140,18 +124,12 @@ nvim::post_install() {
 
   message_info "Cloning NVIM from ${NVIM_REPO_HTTPS}"
 
-  env git clone --depth=1 "${NVIM_REPO_HTTPS}" --branch main "${NVIMRC_PATH}" || {
+  env git clone --depth=1 "${NVIM_REPO_HTTPS}" --branch main "${NVIM_CONFIG_PATH}" || {
       message_warning "git clone of NVIM repo failed."
       return
   }
 
-  nvchad::install
-
-  ln -fs "${NVIMRC_CUSTOM_PATH}" "${NVIM_CUSTOM_PATH}"
-
   message_success "${NVIM_MESSAGE_DONE}"
-
-  nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
   message_success "Post Installed ${NVIM_PACKAGE_NAME}"
 }
 
