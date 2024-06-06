@@ -256,45 +256,6 @@ map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle relative number" })
 map("n", "<leader>ih", "<cmd>ToggleInlayHints<CR>", { desc = "Toggle inlay hints" })
 map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
--- Term
-map("t", "<C-x>", "<C-\\><C-N>", { desc = "Term escape terminal mode" })
-
-map({ "n", "t" }, "<A-v>", function()
-  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
-end, { desc = "Term toggle vertical split" })
-
-map({ "n", "t" }, "<C-A-v>", function()
-  require("nvchad.term").toggle {
-    pos = "vsp",
-    id = "vtoggleTermLoc",
-    cmd = "cd " .. vim.fn.expand "%:p:h",
-  }
-end, { desc = "Term toggle vertical split in buffer location" })
-
-map({ "n", "t" }, "<A-h>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-end, { desc = "Term toggle horizontal split" })
-
-map({ "n", "t" }, "<C-A-h>", function()
-  require("nvchad.term").toggle {
-    pos = "sp",
-    id = "htoggleTermLoc",
-    cmd = "cd " .. vim.fn.expand "%:p:h",
-  }
-end, { desc = "Term toggle horizontal split in buffer location" })
-
-map({ "n", "t" }, "<A-i>", function()
-  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
-end, { desc = "Term toggle floating" })
-
-map({ "n", "t" }, "<C-A-i>", function()
-  require("nvchad.term").toggle {
-    pos = "float",
-    id = "floatTermLoc",
-    cmd = "cd " .. vim.fn.expand "%:p:h",
-  }
-end, { desc = "Term toggle floating in buffer location" })
-
 -- TreeSitter
 map({ "n", "v" }, "<leader>it", function()
   utils.toggle_inspect_tree()
