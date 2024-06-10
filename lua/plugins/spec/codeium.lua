@@ -1,7 +1,11 @@
 return {
   "Exafunction/codeium.vim",
-  lazy = false,
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "hrsh7th/nvim-cmp",
+  },
   config = function()
+    require("codeium").setup {}
     -- stylua: ignore start
     vim.keymap.set("i", "<c-g>", function()
       return vim.fn["codeium#Accept"]()

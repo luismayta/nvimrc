@@ -14,7 +14,6 @@ return {
   { import = "plugins.spec.trouble" },
   { import = "plugins.spec.b64" },
 
-  -- { import = "plugins.spec.comment" },
   { import = "plugins.spec.crates" },
   { import = "plugins.spec.dap-ui" },
   { import = "plugins.spec.dap-virtual-text" },
@@ -32,13 +31,11 @@ return {
   { import = "plugins.spec.goto-preview" },
   { import = "plugins.spec.grug-far" },
   { import = "plugins.spec.harpoon" },
-  -- { import = "plugins.spec.hop" },
   { import = "plugins.spec.hover" },
   { import = "plugins.spec.lsp-signature" },
   { import = "plugins.spec.matchup" },
   { import = "plugins.spec.md-preview" },
   { import = "plugins.spec.neocomposer" },
-  -- { import = "plugins.spec.neogit" },
   { import = "plugins.spec.notify" },
   { import = "plugins.spec.outline" },
   { import = "plugins.spec.project" },
@@ -73,9 +70,6 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    config = function(_, opts)
-      require("core.utils").load_mappings "dap"
-    end,
   },
   {
     "mfussenegger/nvim-dap-python",
@@ -84,11 +78,6 @@ return {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
-    config = function(_, opts)
-      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-      require("dap-python").setup(path)
-      require("core.utils").load_mappings "dap_python"
-    end,
   },
   -- rust
   { import = "plugins.spec.rust" },
@@ -141,7 +130,6 @@ return {
   { import = "plugins.spec.vim-graphql" },
   --   -- SRE
   { import = "plugins.spec.terraform" },
-  { import = "plugins.override.blankline" },
   { import = "plugins.override.cmp" },
   { import = "plugins.override.conform" },
   -- LSP
@@ -168,6 +156,7 @@ return {
   { import = "plugins.override.telescope" },
   { import = "plugins.override.whichkey" },
   --   -- UI
+  { import = "plugins.override.blankline" },
   { "stevearc/dressing.nvim", lazy = false },
   {
     "goolord/alpha-nvim",
@@ -186,23 +175,8 @@ return {
     end,
   },
   -- Editor
-  -- {
-  --   "folke/todo-comments.nvim",
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  --   config = function()
-  --     require("todo-comments").setup()
-  --   end,
-  -- },
   { "wakatime/vim-wakatime", lazy = false },
-  {
-    "phaazon/hop.nvim",
-    lazy = false,
-    event = "BufReadPost",
-    branch = "v2",
-    config = function()
-      require "configs.hop"
-    end,
-  },
+  { import = "plugins.spec.hop" },
   {
     "tpope/vim-surround",
     lazy = true,

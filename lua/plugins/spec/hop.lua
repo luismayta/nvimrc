@@ -10,7 +10,6 @@ return {
   end,
   opts = { keys = "etovxqpdygfblzhckisuran" },
   config = function(_, opts)
-    dofile(vim.g.base46_cache .. "hop")
     require("hop").setup(opts)
   end,
 }

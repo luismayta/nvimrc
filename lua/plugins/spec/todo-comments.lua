@@ -3,7 +3,6 @@ return {
   dependencies = "nvim-lua/plenary.nvim",
   event = "VeryLazy",
   config = function()
-    dofile(vim.g.base46_cache .. "todo")
     require("todo-comments").setup {
       keywords = {
         GROUP = { icon = " ", color = "hint" },
