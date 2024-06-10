@@ -193,8 +193,8 @@ local map = vim.keymap.set
 local opts = { silent = true }
 
 map("n", ";", ":", { desc = "Enter CMD mode" })
-map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "Copy file content" })
 map("n", "<C-z>", "<NOP>", { desc = "Unmap force closing with <C-z>" })
 map("n", "<leader><F4>", "<cmd>stop<CR>", { desc = "Stop NVIM" })
@@ -202,6 +202,7 @@ map("n", "z-", "z^", { desc = "Remap z^ into z- to match z+" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear search highlights" })
 map("n", "<leader>cs", "<cmd><CR>", { desc = "Clear statusline" })
 map("n", "<leader>cm", "<cmd>mes clear<CR>", { desc = "Clear messages" })
+
 -- https://github.com/neovim/neovim/issues/2048
 map("i", "<A-BS>", "<C-w>", { desc = "Remove word" })
 map("v", "y", "ygv<Esc>", { desc = "Yank preventing cursor from jumping back to where selection started" })
@@ -225,18 +226,8 @@ map("i", "<C-A-k>", "<Up>", { desc = "Go up" })
 map("n", "<leader>gm", "<cmd>exe 'normal! ' . line('$')/2 . 'G'<CR>", { desc = "Go to middle of the file" })
 
 -- Move lines up/down
-map("n", "<A-Down>", ":m .+1<CR>", { desc = "Move line down" })
-map("n", "<A-j>", ":m .+1<CR>", { desc = "Move line down" })
-map("n", "<A-Up>", ":m .-2<CR>", { desc = "Move line up" })
-map("n", "<A-k>", ":m .-2<CR>", { desc = "Move line up" })
-map("i", "<A-Down>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
-map("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
-map("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
-map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
-map("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-map("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
-map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+map({ "i", "n" }, "<C-k>", "<Up>", { desc = "Move Up" })
+map({ "i", "n" }, "<C-j>", "<Down>", { desc = "Move Down" })
 
 -- Switch buffers
 map("n", "<C-h>", "<C-w>h", { desc = "Buffer switch left" })
@@ -251,23 +242,15 @@ map("n", "<C-A-k>", "5<C-w>+", { desc = "Window increase height by 5" })
 map("n", "<C-A-j>", "5<C-w>-", { desc = "Window decrease height by 5" })
 
 -- Togglers
-map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle line number" })
-map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle relative number" })
-map("n", "<leader>ih", "<cmd>ToggleInlayHints<CR>", { desc = "Toggle inlay hints" })
 map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
 -- TreeSitter
-map({ "n", "v" }, "<leader>it", function()
-  utils.toggle_inspect_tree()
-end, { desc = "TreeSitter toggle inspect tree" })
-
 map("n", "<leader>ii", "<cmd>Inspect<CR>", { desc = "TreeSitter inspect under cursor" })
 
 -- LSP
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
 -- focus
-
 map("n", "<leader>h", ":FocusSplitLeft<CR>", { desc = "move buffer left" })
 map("n", "<leader>j", ":FocusSplitDown<CR>", { desc = "move buffer down" })
 map("n", "<leader>j", ":FocusSplitUP<CR>", { desc = "move buffer up" })
@@ -301,7 +284,6 @@ map("n", "<C-Down>", function()
   require("colorify.tools").lighten(-2)
 end)
 
-map("n", "<leader>h", ":FocusSplitLeft<CR>", { desc = "move buffer left" })
 -- Define mappings for Telescope
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
@@ -315,12 +297,6 @@ map("n", "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- Mappings for nvim-tree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", opts)
-
--- Mappings for general navigation with Tmux
-map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", opts)
-map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", opts)
-map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", opts)
-map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", opts)
 
 -- Mappings for Copilot
 map("i", "<C-a>", "copilot#Accept()", { silent = true, expr = true, script = true })
@@ -341,3 +317,6 @@ map("n", "<leader>dr", "<cmd>Trouble lsp_references<CR>", opts)
 -- Gitsigns
 map("n", "<leader>bl", "<cmd>Gitsigns blame_line<CR>", { desc = "Gitsigns blame line" })
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", { desc = "Gitsigns toggle deleted" })
+
+-- Disable mappings
+local nomap = vim.keymap.del

@@ -1,27 +1,29 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local configs = require "nvchad.configs.lspconfig"
+
+local on_attach = configs.on_attach
+local on_init = configs.on_init
+local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 -- lspservers with default config
-local servers = { "clangd","pylsp", "pyright", "html", "cssls", "tsserver" }
+local servers = { "clangd", "pylsp", "pyright", "html", "cssls", "tsserver" }
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
+  lspconfig[lsp].setup {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
     },
-  })
+  }
 end
 
-lspconfig.pylsp.setup({
+lspconfig.pylsp.setup {
   on_attach = on_attach,
-    on_init = on_init,
+  on_init = on_init,
   capabilities = capabilities,
   filetypes = { "python" },
   settings = {
@@ -34,21 +36,21 @@ lspconfig.pylsp.setup({
       },
     },
   },
-})
+}
 
 lspconfig.terraformls.setup {
   on_attach = on_attach,
-    on_init = on_init,
+  on_init = on_init,
   capabilities = capabilities,
-  cmd = {"terraform-ls", "serve"},
+  cmd = { "terraform-ls", "serve" },
   root_dir = util.root_pattern(".terraform", ".git"),
 }
 
-lspconfig.gopls.setup({
+lspconfig.gopls.setup {
   on_attach = on_attach,
-    on_init = on_init,
+  on_init = on_init,
   capabilities = capabilities,
-  cmd = { "gopls"},
+  cmd = { "gopls" },
   cmd_env = {
     GOFLAGS = "-tags=test,e2e_test,integration_test,acceptance_test",
   },
@@ -74,14 +76,14 @@ lspconfig.gopls.setup({
       usePlaceholders = true,
     },
   },
-})
+}
 
 -- typescript
-lspconfig.tsserver.setup({
+lspconfig.tsserver.setup {
   on_attach = function(client)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end,
   on_init = on_init,
   capabilities = capabilities,
-})
+}
