@@ -26,7 +26,8 @@ return {
   { import = "plugins.spec.fugitive" },
   { import = "plugins.spec.gitsigns" },
 
-  { import = "plugins.spec.gleam" },
+  -- navigation
+
   { import = "plugins.spec.go" },
   { import = "plugins.spec.goto-preview" },
   { import = "plugins.spec.grug-far" },
@@ -43,6 +44,8 @@ return {
   { import = "plugins.spec.rainbow-delimiters" },
   { import = "plugins.spec.regexplainer" },
   -- Languages
+  -- others
+  { import = "plugins.spec.gleam" },
 
   -- python
   { "ChristianChiarulli/swenv.nvim", lazy = false },
@@ -146,7 +149,8 @@ return {
       return require "configs.null-ls"
     end,
   },
-  { import = "plugins.override.luasnip" },
+  -- snip
+  -- { import = "plugins.override.luasnip" },
   { import = "plugins.override.mason" },
   -- ui
   { import = "plugins.override.nvim-colorizer" },
