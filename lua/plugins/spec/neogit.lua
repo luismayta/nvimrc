@@ -11,7 +11,6 @@ return {
     map("n", "<leader>gg", "<cmd>Neogit<CR>", { desc = "Neogit Open" })
   end,
   config = function(_, opts)
-    dofile(vim.g.base46_cache .. "neogit")
     require("neogit").setup(opts)
   end,
 }
