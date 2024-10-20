@@ -8,7 +8,7 @@ local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 -- lspservers with default config
-local servers = { "clangd", "pylsp", "pyright", "html", "cssls", "tsserver" }
+local servers = { "clangd", "pylsp", "pyright", "html", "cssls", "ts_ls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -79,7 +79,7 @@ lspconfig.gopls.setup {
 }
 
 -- typescript
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = function(client)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
