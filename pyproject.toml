@@ -23,7 +23,7 @@ pycodestyle = "*"
 pydocstyle = "*"
 pygments = "*"
 black = "*"
-checkov = "^2.4.48"
+checkov = "^3.0.0"
 
 [tool.poetry.group.docs]
 optional = true
