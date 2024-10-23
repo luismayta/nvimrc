@@ -21,4 +21,5 @@ return {
     end, { expr = true })
     -- stylua: ignore end
   end,
+  enabled = true,
 }

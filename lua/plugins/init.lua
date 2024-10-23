@@ -5,10 +5,10 @@ return {
   { "catppuccin/nvim", lazy = false },
   -- { import = "plugins.spec.better-escape" },
   { import = "plugins.spec.ccc" },
-  { import = "plugins.spec.codecompanion" },
-  { import = "plugins.spec.codesnap" },
   -- AI
   { import = "plugins.spec.codeium" },
+  -- { import = "plugins.spec.codecompanion" },
+  { import = "plugins.spec.codesnap" },
   -- TOOLS
   { import = "plugins.spec.asynctasks" },
   { import = "plugins.spec.trouble" },
@@ -35,7 +35,7 @@ return {
   { import = "plugins.spec.hover" },
   { import = "plugins.spec.lsp-signature" },
   { import = "plugins.spec.matchup" },
-  { import = "plugins.spec.md-preview" },
+  -- { import = "plugins.spec.md-preview" },
   { import = "plugins.spec.neocomposer" },
   { import = "plugins.spec.notify" },
   { import = "plugins.spec.outline" },
