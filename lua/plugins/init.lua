@@ -8,7 +8,7 @@ return {
   { import = "plugins.spec.codeium" },
   { import = "plugins.spec.codecompanion" },
   { import = "plugins.spec.codesnap" },
- -- -- lsp
+  -- -- lsp
   { import = "plugins.spec.mason-lspconfig" },
   { import = "plugins.spec.nvim-lspconfig" },
   -- TOOLS
@@ -36,7 +36,6 @@ return {
   { import = "plugins.spec.harpoon" },
   { import = "plugins.spec.hover" },
   { import = "plugins.spec.matchup" },
-  { import = "plugins.spec.md-preview" },
   { import = "plugins.spec.neocomposer" },
   { import = "plugins.spec.notify" },
   { import = "plugins.spec.outline" },
