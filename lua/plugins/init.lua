@@ -3,12 +3,14 @@ return {
   { "NvChad/nvterm", enabled = false },
   -- theme
   { "catppuccin/nvim", lazy = false },
-  -- { import = "plugins.spec.better-escape" },
   { import = "plugins.spec.ccc" },
   -- AI
   { import = "plugins.spec.codeium" },
-  -- { import = "plugins.spec.codecompanion" },
+  { import = "plugins.spec.codecompanion" },
   { import = "plugins.spec.codesnap" },
+ -- -- lsp
+  { import = "plugins.spec.mason-lspconfig" },
+  { import = "plugins.spec.nvim-lspconfig" },
   -- TOOLS
   { import = "plugins.spec.asynctasks" },
   { import = "plugins.spec.trouble" },
@@ -33,9 +35,8 @@ return {
   { import = "plugins.spec.grug-far" },
   { import = "plugins.spec.harpoon" },
   { import = "plugins.spec.hover" },
-  { import = "plugins.spec.lsp-signature" },
   { import = "plugins.spec.matchup" },
-  -- { import = "plugins.spec.md-preview" },
+  { import = "plugins.spec.md-preview" },
   { import = "plugins.spec.neocomposer" },
   { import = "plugins.spec.notify" },
   { import = "plugins.spec.outline" },
@@ -134,9 +135,6 @@ return {
   --   -- SRE
   { import = "plugins.spec.terraform" },
   { import = "plugins.override.cmp" },
-  { import = "plugins.override.conform" },
-  -- LSP
-  { import = "plugins.override.lspconfig" },
 
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -151,7 +149,6 @@ return {
   },
   -- snip
   -- { import = "plugins.override.luasnip" },
-  { import = "plugins.override.mason" },
   -- ui
   { import = "plugins.override.nvim-colorizer" },
   { import = "plugins.override.nvim-tree" },
@@ -180,6 +177,7 @@ return {
   },
   -- Editor
   { "wakatime/vim-wakatime", lazy = false },
+  { import = "plugins.override.conform" },
   { import = "plugins.spec.hop" },
   {
     "tpope/vim-surround",
@@ -208,7 +206,6 @@ return {
     event = "BufReadPost",
   },
   { "lambdalisue/suda.vim", cmd = "SudaWrite" },
-  { "sbdchd/neoformat", lazy = true },
   {
     "ray-x/cmp-treesitter",
     dependencies = {

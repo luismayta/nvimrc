@@ -18,7 +18,6 @@ return {
       javascript = { "prettier" },
       javascriptreact = { "prettier" },
       json = { "biome" },
-      markdown = { "mdformat" },
       typescript = { "prettier" },
       typescriptreact = { "prettier" },
       lua = { "stylua" },
