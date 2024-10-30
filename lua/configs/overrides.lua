@@ -162,8 +162,10 @@ M.mason = {
     -- Others
     "jq",
     "jq-lsp",
-    "vim-language-server",
     "vls",
+    -- vim
+    "vim-language-server",
+    "vint",
   },
   pylsp_plugins_to_install = {
     "pyls-memestra",
