@@ -112,15 +112,10 @@ return {
     -- Markdown / Text
     "texlab", -- testing
     "alex",
-    "grammarly-languageserver",
     "markdownlint",
     "marksman",
     "proselint",
     "prosemd-lsp",
-    "remark-cli",
-    "remark-language-server",
-    "vale",
-    "vale-ls",
     "write-good",
   },
   config_lsps = {
