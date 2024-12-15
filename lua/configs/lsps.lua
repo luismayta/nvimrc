@@ -87,7 +87,6 @@ return {
     "goimports",
     "goimports-reviser",
     "golangci-lint",
-    "golangci-lint-langserver",
     "golines",
     "gomodifytags",
     "gopls",
@@ -116,7 +115,6 @@ return {
     "marksman",
     "proselint",
     "prosemd-lsp",
-    "write-good",
   },
   config_lsps = {
     "html",

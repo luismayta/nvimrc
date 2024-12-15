@@ -110,8 +110,6 @@ M.mason = {
     "proselint",
     "prosemd-lsp",
     "remark-language-server",
-    "vale",
-    "write-good",
 
     -- solidity
     "solidity",
@@ -141,7 +139,6 @@ M.mason = {
     "goimports",
     "goimports-reviser",
     "golangci-lint",
-    "golangci-lint-langserver",
     "golines",
     "gomodifytags",
     "gopls",

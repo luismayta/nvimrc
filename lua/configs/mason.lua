@@ -57,7 +57,6 @@ M.ensure_installed = {
   "marksman",
   "proselint",
   "prosemd-lsp",
-  "write-good",
 
   -- solidity
   "solidity",
@@ -90,7 +89,6 @@ M.ensure_installed = {
   "goimports",
   "goimports-reviser",
   "golangci-lint",
-  "golangci-lint-langserver",
   "golines",
   "gomodifytags",
   "gopls",
