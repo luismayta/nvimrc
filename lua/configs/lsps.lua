@@ -74,7 +74,6 @@ return {
     "jedi-language-server",
     "python-lsp-server",
     "djlint",
-    "sourcery",
     -- rust
     "bacon",
     "bacon-ls",

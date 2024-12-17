@@ -97,7 +97,6 @@ M.mason = {
     "jedi-language-server",
     "python-lsp-server",
     "djlint",
-    "sourcery",
     -- install 3rd party plugins
     -- :PylspInstall pylsp-mypy pylsp-rope pyls-memestra pyls-isort python-lsp-black python-lsp-ruff
 

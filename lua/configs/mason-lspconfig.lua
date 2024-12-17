@@ -20,7 +20,6 @@ M.ensure_installed = {
   "ruff",
   "pyright",
   "jedi_language_server",
-  "sourcery",
   -- install 3rd party plugins
   -- :PylspInstall pylsp-mypy pylsp-rope pyls-memestra pyls-isort python-lsp-black python-lsp-ruff
 

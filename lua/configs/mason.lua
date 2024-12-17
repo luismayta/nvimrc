@@ -46,7 +46,6 @@ M.ensure_installed = {
   "jedi_language_server",
   "pythonlsp",
   "djlint",
-  "sourcery",
   -- install 3rd party plugins
   -- :PylspInstall pylsp-mypy pylsp-rope pyls-memestra pyls-isort python-lsp-black python-lsp-ruff
 
