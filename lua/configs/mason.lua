@@ -25,7 +25,7 @@ M.ensure_installed = {
   "tailwindcss-language-server",
   "prettier",
   "prettierd",
-  "denols",
+  -- "denols",
 
   -- JSON
   "fixjson",

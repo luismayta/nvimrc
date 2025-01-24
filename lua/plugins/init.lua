@@ -1,6 +1,22 @@
 return {
   -- disabled
   { "NvChad/nvterm", enabled = false },
+  -- plugins
+  {
+    "NvChad/base46",
+    branch = "v3.0",
+    build = function()
+      require("base46").load_all_highlights()
+    end,
+  },
+  {
+    "NvChad/ui",
+    branch = "v3.0",
+    lazy = false,
+    config = function()
+      require "nvchad"
+    end,
+  },
   -- theme
   { "catppuccin/nvim", lazy = false },
   { import = "plugins.spec.ccc" },
@@ -9,8 +25,8 @@ return {
   { import = "plugins.spec.codecompanion" },
   { import = "plugins.spec.codesnap" },
   -- -- lsp
-  { import = "plugins.spec.mason-lspconfig" },
   { import = "plugins.spec.nvim-lspconfig" },
+  { import = "plugins.spec.mason-lspconfig" },
   -- TOOLS
   { import = "plugins.spec.asynctasks" },
   { import = "plugins.spec.trouble" },
@@ -83,6 +99,17 @@ return {
     },
   },
   -- rust
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    -- opts = function()
+    --   return require "configs.rust-tools"
+    -- end,
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
+    end,
+  },
   { import = "plugins.spec.rust" },
   {
     "rust-lang/rust.vim",
@@ -90,17 +117,6 @@ return {
     init = function()
       vim.g.rustfmt_autosave = 1
       vim.g.rust_clip_command = "xclip -selection clipboard"
-    end,
-  },
-  {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
     end,
   },
   {
@@ -112,12 +128,10 @@ return {
       crates.show()
     end,
   },
-  { import = "plugins.spec.rustaceanvim" },
   { import = "plugins.spec.screenkey" },
   { import = "plugins.spec.scrolleof" },
   { import = "plugins.spec.searchbox" },
   { import = "plugins.spec.swenv" },
-  { import = "plugins.spec.tabby-ml" },
   { import = "plugins.spec.todo-comments" },
   { import = "plugins.spec.treesitter-textobjects" },
   { import = "plugins.spec.ts-autotag" },

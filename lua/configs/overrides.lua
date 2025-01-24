@@ -87,6 +87,7 @@ M.mason = {
     "bash-language-server",
 
     -- Python
+    "pylsp",
     "black",
     "debugpy",
     "mypy",
@@ -95,7 +96,6 @@ M.mason = {
     "flake8",
     "isort",
     "jedi-language-server",
-    "python-lsp-server",
     "djlint",
     -- install 3rd party plugins
     -- :PylspInstall pylsp-mypy pylsp-rope pyls-memestra pyls-isort python-lsp-black python-lsp-ruff

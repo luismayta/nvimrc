@@ -1,6 +1,5 @@
 local M = {}
 
-
 M.ensure_installed = {
   -- DevOps / SRE
   "ansiblels",
@@ -11,12 +10,13 @@ M.ensure_installed = {
   "dockerls",
 
   -- web dev stuff
-  "denols",
+  -- "denols",
 
   -- shell
   "bashls",
 
   -- Python
+  "pylsp",
   "ruff",
   "pyright",
   "jedi_language_server",

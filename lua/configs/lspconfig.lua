@@ -1,55 +1,47 @@
+-- load defaults i.e lua_lsp
+require("nvchad.configs.lspconfig").defaults()
+
 local configs = require "nvchad.configs.lspconfig"
 
-local on_attach = configs.on_attach
-local on_init = configs.on_init
-local capabilities = configs.capabilities
-
 local lspconfig = require "lspconfig"
-local util = require "lspconfig/util"
 
 -- lspservers with default config
-local servers = { "clangd", "pylsp", "pyright", "html", "cssls", "ts_ls" }
+local servers = {
+  "html",
+  "cssls",
+  "tsserver",
+  "clangd",
+  "pyright",
+  "yamlls",
+  "dockerls",
+  "clojure_lsp",
+  "cmake",
+  "vimls",
+}
 
+local nvlsp = require "nvchad.configs.lspconfig"
+
+-- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150,
-    },
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
   }
 end
 
-lspconfig.pylsp.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  filetypes = { "python" },
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = { "W391" },
-          maxLineLength = 100,
-        },
-      },
-    },
-  },
-}
-
 lspconfig.terraformls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
   cmd = { "terraform-ls", "serve" },
   root_dir = util.root_pattern(".terraform", ".git"),
 }
 
 lspconfig.gopls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
   cmd = { "gopls" },
   cmd_env = {
     GOFLAGS = "-tags=test,e2e_test,integration_test,acceptance_test",
@@ -74,6 +66,30 @@ lspconfig.gopls.setup {
         vendor = true,
       },
       usePlaceholders = true,
+    },
+  },
+}
+
+-- rust
+lspconfig.rust_analyzer.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
+      },
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+      },
+      procMacro = {
+        enable = true,
+      },
     },
   },
 }

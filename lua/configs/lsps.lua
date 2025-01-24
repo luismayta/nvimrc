@@ -65,6 +65,7 @@ return {
     "shellcheck",
     "bash-language-server",
     -- Python
+    "pylsp",
     "black",
     "debugpy",
     "mypy",
@@ -72,7 +73,6 @@ return {
     "pyright",
     "isort",
     "jedi-language-server",
-    "python-lsp-server",
     "djlint",
     -- rust
     "bacon",
