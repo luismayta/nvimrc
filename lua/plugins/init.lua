@@ -1,7 +1,6 @@
 return {
-  -- disabled
-  { "NvChad/nvterm", enabled = false },
-  -- plugins
+  -- Core UI and Themes
+  { "NvChad/nvterm", enabled = false },  -- Disabled plugin
   {
     "NvChad/base46",
     branch = "v3.0",
@@ -17,11 +16,57 @@ return {
       require "nvchad"
     end,
   },
-  -- theme
-  { "catppuccin/nvim", lazy = false },
+  { "catppuccin/nvim", lazy = false },  -- Theme
   { import = "plugins.spec.ccc" },
-  -- AI
-  { import = "plugins.spec.codeium" },
+  -- AI and Coding Assistance
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false,
+    build = "make",
+    opts = {
+      provider = "openai",
+      auto_suggestions_provider = "openai",
+      openai = {
+        endpoint = "https://api.deepseek.com/v1",
+        model = "deepseek-chat",
+        timeout = 30000,
+        temperature = 0,
+        max_tokens = 4096,
+        api_key_name = "OPENAI_API_KEY",
+      },
+    },
+
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "zbirenbaum/copilot.lua",
+      {
+
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = { insert_mode = true },
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = { file_types = { "markdown", "Avante" } },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
   { import = "plugins.spec.codecompanion" },
   { import = "plugins.spec.codesnap" },
   -- -- lsp
@@ -103,9 +148,6 @@ return {
     "simrat39/rust-tools.nvim",
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
-    -- opts = function()
-    --   return require "configs.rust-tools"
-    -- end,
     config = function(_, opts)
       require("rust-tools").setup(opts)
     end,
@@ -160,9 +202,6 @@ return {
       return require "configs.null-ls"
     end,
   },
-  -- snip
-  -- { import = "plugins.override.luasnip" },
-  -- ui
   { import = "plugins.override.nvim-colorizer" },
   { import = "plugins.override.nvim-tree" },
   { import = "plugins.override.nvim-treesitter" },
@@ -188,41 +227,25 @@ return {
       require "configs.scrollview"
     end,
   },
-  -- Editor
-  { "wakatime/vim-wakatime", lazy = false },
-  { import = "plugins.override.conform" },
-  { import = "plugins.spec.hop" },
-  {
-    "tpope/vim-surround",
-    lazy = true,
-    event = "BufReadPost",
-  },
-  {
-    "RRethy/vim-illuminate",
-    lazy = true,
-    event = "BufReadPost",
-    config = function()
-      require "configs.illuminate"
-    end,
-  },
-  {
-    "karb94/neoscroll.nvim",
-    lazy = false,
-    event = "BufReadPost",
-    config = function()
-      require "configs.neoscroll"
-    end,
-  },
-  {
-    "hrsh7th/vim-eft",
-    lazy = true,
-    event = "BufReadPost",
-  },
-  { "lambdalisue/suda.vim", cmd = "SudaWrite" },
+  -- Editor Enhancements
+  { "wakatime/vim-wakatime", lazy = false },  -- Time tracking
+  { import = "plugins.override.conform" },    -- Formatting
+  { import = "plugins.spec.hop" },            -- Navigation
+
+  -- Text Manipulation
+  { "tpope/vim-surround", lazy = true, event = "BufReadPost" },
+  { "RRethy/vim-illuminate", lazy = true, event = "BufReadPost", config = function() require "configs.illuminate" end },
+  { "hrsh7th/vim-eft", lazy = true, event = "BufReadPost" },
+
+  -- Scrolling
+  { "karb94/neoscroll.nvim", lazy = false, event = "BufReadPost", config = function() require "configs.neoscroll" end },
+
+  -- File Operations
+  { "lambdalisue/suda.vim", cmd = "SudaWrite" },  -- Sudo write
+
+  -- Completion
   {
     "ray-x/cmp-treesitter",
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
+    dependencies = { "hrsh7th/nvim-cmp" },
   },
 }
