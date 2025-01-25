@@ -9,8 +9,7 @@ return {
 
   { import = "plugins.spec.codesnap" },
   -- -- lsp
-  { import = "plugins.spec.nvim-lspconfig" },
-  { import = "plugins.spec.mason-lspconfig" },
+  { import = "plugins.spec.mason" },
   -- TOOLS
   { import = "plugins.spec.asynctasks" },
   { import = "plugins.spec.trouble" },
