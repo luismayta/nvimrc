@@ -15,11 +15,15 @@ return {
   { import = "plugins.spec.asynctasks" },
   { import = "plugins.spec.trouble" },
   { import = "plugins.spec.b64" },
-
+  {
+    "mbbill/undotree",
+    lazy = true,
+    cmd = "UndotreeToggle",
+  },
   { import = "plugins.spec.dap-ui" },
   { import = "plugins.spec.dap-virtual-text" },
   { import = "plugins.spec.diffview" },
-  { import = "plugins.spec.dressing" },
+  { import = "plugins.spec.ui" },
   { import = "plugins.spec.dropbar" },
   { import = "plugins.spec.edgy" },
   { import = "plugins.spec.fine-cmdline" },
@@ -122,24 +126,7 @@ return {
   { import = "plugins.override.telescope" },
   { import = "plugins.override.whichkey" },
   --   -- UI
-  { import = "plugins.override.blankline" },
-  { "stevearc/dressing.nvim", lazy = false },
-  {
-    "goolord/alpha-nvim",
-    lazy = false,
-  },
-  {
-    "mbbill/undotree",
-    lazy = true,
-    cmd = "UndotreeToggle",
-  },
-  {
-    "dstein64/nvim-scrollview",
-    lazy = true,
-    config = function()
-      require "configs.scrollview"
-    end,
-  },
+
   -- Editor Enhancements
   { "wakatime/vim-wakatime", lazy = false }, -- Time tracking
   { import = "plugins.override.conform" }, -- Formatting
