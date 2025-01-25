@@ -70,30 +70,6 @@ lspconfig.gopls.setup {
   },
 }
 
--- rust
-lspconfig.rust_analyzer.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      imports = {
-        granularity = {
-          group = "module",
-        },
-        prefix = "self",
-      },
-      cargo = {
-        buildScripts = {
-          enable = true,
-        },
-      },
-      procMacro = {
-        enable = true,
-      },
-    },
-  },
-}
-
 -- typescript
 lspconfig.ts_ls.setup {
   on_attach = function(client)
