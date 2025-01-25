@@ -3,12 +3,12 @@ local M = {}
 M.ui = { border = "rounded" }
 M.ensure_installed = {
   -- DevOps / SRE
-  "ansiblels",
+  "ansible-language-server",
   -- Terraform
-  "terraformls",
+  "terraform-ls",
   "tflint",
   -- Docker
-  "dockerls",
+  "dockerfile-language-server",
   "hadolint",
 
   -- Lua
@@ -25,16 +25,18 @@ M.ensure_installed = {
   "tailwindcss-language-server",
   "prettier",
   "prettierd",
-  -- "denols",
+  "deno",
+  "emmet-ls",
 
   -- JSON
   "fixjson",
-  "jsonld-lsp",
+  "json-lsp",
+  "json-to-struct",
 
   -- shell
   "shfmt",
   "shellcheck",
-  "bashls",
+  "bash-language-server",
 
   -- Python
   "black",
@@ -42,9 +44,9 @@ M.ensure_installed = {
   "mypy",
   "ruff",
   "pyright",
+  "flake8",
   "isort",
-  "jedi_language_server",
-  "pythonlsp",
+  "jedi-language-server",
   "djlint",
   -- install 3rd party plugins
   -- :PylspInstall pylsp-mypy pylsp-rope pyls-memestra pyls-isort python-lsp-black python-lsp-ruff
@@ -52,18 +54,18 @@ M.ensure_installed = {
   -- Markdown / Text
   "texlab", -- testing
   "alex",
+  "grammarly-languageserver",
   "markdownlint",
   "marksman",
   "proselint",
   "prosemd-lsp",
+  "remark-language-server",
 
   -- solidity
   "solidity",
   "solidity-ls",
 
   -- rust
-  "bacon",
-  "bacon-ls",
   "rust-analyzer",
 
   -- C++
@@ -81,7 +83,6 @@ M.ensure_installed = {
   "ltex-ls",
 
   -- Go
-  "json-to-struct",
   "delve",
   "go-debug-adapter",
   "gofumpt",

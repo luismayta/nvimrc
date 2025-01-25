@@ -2,7 +2,7 @@
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
 -- Please read that file to know all available options :(
 
-local overrides = require "configs.lsps"
+local mason = require "configs.mason"
 
 ---@type ChadrcConfig
 local M = {}
@@ -114,7 +114,7 @@ M.term = {
 }
 
 M.mason = {
-  pkgs = overrides.mason_lsps,
+  pkgs = mason.ensure_installed,
 }
 
 return M
