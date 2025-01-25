@@ -29,7 +29,6 @@ return {
 
   -- navigation
 
-  { import = "plugins.spec.go" },
   { import = "plugins.spec.goto-preview" },
   { import = "plugins.spec.grug-far" },
   { import = "plugins.spec.harpoon" },
@@ -84,6 +83,7 @@ return {
   -- rust
 
   { import = "plugins.spec.rust" },
+
   { import = "plugins.spec.screenkey" },
   { import = "plugins.spec.scrolleof" },
   { import = "plugins.spec.searchbox" },
@@ -97,8 +97,7 @@ return {
   { import = "plugins.spec.vim-astro" },
   { import = "plugins.spec.zen-mode" },
   -- go
-  { import = "plugins.spec.nvim-dap-go" },
-  { import = "plugins.spec.gopher" },
+  { import = "plugins.spec.go" },
   -- graphql
   { import = "plugins.spec.vim-graphql" },
   --   -- SRE
