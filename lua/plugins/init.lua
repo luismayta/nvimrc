@@ -27,8 +27,10 @@ return {
   { import = "plugins.spec.edgy" },
   { import = "plugins.spec.fine-cmdline" },
   -- Git
-  { import = "plugins.spec.fugitive" },
-  { import = "plugins.spec.gitsigns" },
+  { import = "plugins.spec.git" },
+
+  -- productivity
+  { import = "plugins.spec.productivity" },
 
   -- navigation
 
@@ -91,10 +93,8 @@ return {
   { import = "plugins.spec.scrolleof" },
   { import = "plugins.spec.searchbox" },
   { import = "plugins.spec.swenv" },
-  { import = "plugins.spec.todo-comments" },
   { import = "plugins.spec.treesitter-textobjects" },
   { import = "plugins.spec.ts-autotag" },
-  { import = "plugins.spec.ts-context-commentstring" },
   -- { import = "plugins.spec.tstools" },
   { import = "plugins.spec.undo-tree" },
   { import = "plugins.spec.vim-astro" },
@@ -122,7 +122,6 @@ return {
   { import = "plugins.override.nvim-treesitter" },
   { import = "plugins.override.nvim-web-devicons" },
   { import = "plugins.override.telescope" },
-  { import = "plugins.override.whichkey" },
   --   -- UI
 
   -- Editor Enhancements
@@ -131,7 +130,6 @@ return {
   { import = "plugins.spec.hop" }, -- Navigation
 
   -- Text Manipulation
-  { "tpope/vim-surround", lazy = true, event = "BufReadPost" },
   {
     "RRethy/vim-illuminate",
     lazy = true,
