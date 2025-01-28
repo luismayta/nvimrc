@@ -104,8 +104,7 @@ return {
   -- graphql
   { import = "plugins.spec.vim-graphql" },
   --   -- SRE
-  { import = "plugins.spec.terraform" },
-  { import = "plugins.override.cmp" },
+  { import = "plugins.spec.sre" },
 
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -157,8 +156,5 @@ return {
   { "lambdalisue/suda.vim", cmd = "SudaWrite" }, -- Sudo write
 
   -- Completion
-  {
-    "ray-x/cmp-treesitter",
-    dependencies = { "hrsh7th/nvim-cmp" },
-  },
+  { import = "plugins.spec.completion" },
 }
