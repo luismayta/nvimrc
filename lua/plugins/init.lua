@@ -14,11 +14,6 @@ return {
   { import = "plugins.spec.asynctasks" },
   { import = "plugins.spec.trouble" },
   { import = "plugins.spec.b64" },
-  {
-    "mbbill/undotree",
-    lazy = true,
-    cmd = "UndotreeToggle",
-  },
   { import = "plugins.spec.dap-ui" },
   { import = "plugins.spec.dap-virtual-text" },
   { import = "plugins.spec.diffview" },
@@ -96,7 +91,6 @@ return {
   { import = "plugins.spec.treesitter-textobjects" },
   { import = "plugins.spec.ts-autotag" },
   -- { import = "plugins.spec.tstools" },
-  { import = "plugins.spec.undo-tree" },
   { import = "plugins.spec.vim-astro" },
   { import = "plugins.spec.zen-mode" },
   -- go
@@ -117,11 +111,7 @@ return {
       return require "configs.null-ls"
     end,
   },
-  { import = "plugins.override.nvim-colorizer" },
-  { import = "plugins.override.nvim-tree" },
-  { import = "plugins.override.nvim-treesitter" },
-  { import = "plugins.override.nvim-web-devicons" },
-  { import = "plugins.override.telescope" },
+
   --   -- UI
 
   -- Editor Enhancements
