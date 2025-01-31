@@ -7,7 +7,6 @@ return {
   -- AI and Coding Assistance
   { import = "plugins.spec.ai" },
 
-  { import = "plugins.spec.codesnap" },
   -- -- lsp
   { import = "plugins.spec.mason" },
   -- TOOLS
@@ -18,8 +17,6 @@ return {
   { import = "plugins.spec.dap-virtual-text" },
   { import = "plugins.spec.diffview" },
   { import = "plugins.spec.ui" },
-  { import = "plugins.spec.dropbar" },
-  { import = "plugins.spec.edgy" },
   { import = "plugins.spec.fine-cmdline" },
   -- Git
   { import = "plugins.spec.git" },
@@ -31,15 +28,12 @@ return {
 
   { import = "plugins.spec.goto-preview" },
   { import = "plugins.spec.grug-far" },
-  { import = "plugins.spec.harpoon" },
   { import = "plugins.spec.hover" },
   { import = "plugins.spec.matchup" },
   { import = "plugins.spec.neocomposer" },
   { import = "plugins.spec.notify" },
   { import = "plugins.spec.outline" },
-  { import = "plugins.spec.project" },
   { import = "plugins.spec.focus" },
-  { import = "plugins.spec.rainbow-delimiters" },
   { import = "plugins.spec.regexplainer" },
   -- Languages
   -- others
@@ -84,13 +78,6 @@ return {
 
   { import = "plugins.spec.rust" },
 
-  { import = "plugins.spec.screenkey" },
-  { import = "plugins.spec.scrolleof" },
-  { import = "plugins.spec.searchbox" },
-  { import = "plugins.spec.swenv" },
-  { import = "plugins.spec.treesitter-textobjects" },
-  { import = "plugins.spec.ts-autotag" },
-  -- { import = "plugins.spec.tstools" },
   { import = "plugins.spec.vim-astro" },
   { import = "plugins.spec.zen-mode" },
   -- go
@@ -111,7 +98,6 @@ return {
       return require "configs.null-ls"
     end,
   },
-
   --   -- UI
 
   -- Editor Enhancements
