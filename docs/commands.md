@@ -79,6 +79,8 @@ task version:minor
 task version:patch
 ```
 
+## Infrastructure
+
 ### Terragrunt
 
 | Field |        Description        |
@@ -153,14 +155,6 @@ task terragrunt:state REGION=us-east-1 STAGE=core COMMAND=list
 
 ```bash
 task terraform:docs STAGE=core
-```
-
-### Python
-
-#### Format syntax code python with [black](https://github.com/psf/black)
-
-```{.bash}
-task python:fmt -- {{file_name or path}}
 ```
 
 ### Diagrams
