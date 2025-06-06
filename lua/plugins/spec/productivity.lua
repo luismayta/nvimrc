@@ -59,4 +59,9 @@ return {
     "HiPhish/rainbow-delimiters.nvim",
     event = "VeryLazy",
   },
+  {
+    "folke/zen-mode.nvim",
+    dependencies = { "folke/twilight.nvim" },
+    cmd = "ZenMode",
+  },
 }

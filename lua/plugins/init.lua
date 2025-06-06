@@ -79,25 +79,13 @@ return {
   { import = "plugins.spec.rust" },
 
   { import = "plugins.spec.vim-astro" },
-  { import = "plugins.spec.zen-mode" },
   -- go
   { import = "plugins.spec.go" },
   -- graphql
-  { import = "plugins.spec.vim-graphql" },
+  { import = "plugins.spec.graphql" },
   --   -- SRE
   { import = "plugins.spec.sre" },
 
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = "go",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    opts = function()
-      return require "configs.null-ls"
-    end,
-  },
   --   -- UI
 
   -- Editor Enhancements
