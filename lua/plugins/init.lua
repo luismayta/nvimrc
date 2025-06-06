@@ -88,7 +88,7 @@ return {
   { import = "plugins.spec.sre" },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     ft = "go",
     dependencies = {
       "nvim-lua/plenary.nvim",

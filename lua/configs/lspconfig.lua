@@ -1,43 +1,45 @@
--- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
-
--- lspservers with default config
-local servers = {
-  "html",
-  "cssls",
-  "tsserver",
-  "clangd",
-  "pyright",
-  "yamlls",
-  "dockerls",
-  "clojure_lsp",
-  "cmake",
-  "vimls",
-}
-
+local util = require("lspconfig/util")
 local nvlsp = require "nvchad.configs.lspconfig"
 
--- lsps with default config
+-- Safe null-ls require
+local ok, null_ls = pcall(require, "null-ls")
+if not ok then return end
+
+-- Safe formatter
+local function format()
+  if vim.lsp.buf.format then
+    vim.lsp.buf.format({ async = true })
+  else
+    vim.lsp.buf.formatting()
+  end
+end
+
+local function on_attach(client, bufnr)
+  nvlsp.on_attach(client, bufnr)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua format()<CR>", { noremap = true, silent = true })
+end
+
+-- LSP servers
+local servers = {
+  "html", "cssls", "tsserver", "clangd",
+  "pyright", "yamlls", "dockerls",
+  "clojure_lsp", "cmake", "vimls",
+}
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
+    on_attach = on_attach,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
   }
 end
 
-lspconfig.terraformls.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-  cmd = { "terraform-ls", "serve" },
-  root_dir = util.root_pattern(".terraform", ".git"),
-}
-
+-- Go
 lspconfig.gopls.setup {
-  on_attach = nvlsp.on_attach,
+  on_attach = on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
   cmd = { "gopls" },
@@ -50,30 +52,43 @@ lspconfig.gopls.setup {
     gopls = {
       completeUnimported = true,
       usePlaceholders = true,
+      staticcheck = true,
       analyses = {
         unusedparams = true,
       },
-      staticcheck = true,
-      linksInHover = false,
       codelenses = {
         generate = true,
-        gc_details = true,
-        regenerate_cgo = true,
         tidy = true,
-        upgrade_depdendency = true,
-        vendor = true,
       },
-      usePlaceholders = true,
     },
   },
 }
 
--- typescript
-lspconfig.ts_ls.setup {
-  on_attach = function(client)
+-- Terraform
+lspconfig.terraformls.setup {
+  on_attach = on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  cmd = { "terraform-ls", "serve" },
+  root_dir = util.root_pattern(".terraform", ".git"),
+}
+
+-- TS
+lspconfig.tsserver.setup {
+  on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
+    on_attach(client, bufnr)
   end,
-  on_init = on_init,
-  capabilities = capabilities,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
 }
+
+-- null-ls setup
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.ruff,
+    -- null_ls.builtins.formatting.black,
+  },
+  on_attach = on_attach,
+})

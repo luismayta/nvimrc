@@ -46,7 +46,6 @@ M.ensure_installed = {
   "pyright",
   "flake8",
   "isort",
-  "jedi-language-server",
   "djlint",
 
   -- Markdown / Text

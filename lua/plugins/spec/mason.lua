@@ -1,62 +1,33 @@
-local configs_mason = require "configs.mason"
+local overrides = require "configs.mason-lspconfig"
 
 return {
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
-    config = function()
-      local lspconfig = require "lspconfig"
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-      lspconfig.lua_ls.setup {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-              disable = { "different-requires" },
-            },
-          },
-        },
-      }
-
-      lspconfig.gopls.setup {
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        settings = {
-          env = {
-            GOEXPERIMENT = "rangefunc",
-          },
-          formatting = {
-            gofumpt = true,
-          },
-        },
-      }
-
-      lspconfig.tailwindcss.setup {
-        settings = {
-          includeLanguages = {
-            templ = "html",
-          },
-        },
-      }
-
-      lspconfig.pyright.setup {
-        capabilities = capabilities,
-      }
-
-      lspconfig.templ.setup {}
-    end,
-  },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = configs_mason.ensure_installed,
-    dependencies = { "williamboman/mason.nvim" },
-    cmd = {
-      "MasonToolsInstall",
-      "MasonToolsInstallSync",
-      "MasonToolsUpdate",
-      "MasonToolsUpdateSync",
-      "MasonToolsClean",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
     },
-  },
+    config = function()
+      local mason = require("mason")
+      local mason_lspconfig = require("mason-lspconfig")
+      local lspconfig = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      mason.setup()
+
+      mason_lspconfig.setup({
+        ensure_installed = overrides.ensure_installed,
+        automatic_installation = true,
+      })
+
+      mason_lspconfig.setup_handlers {
+        function(server_name)
+          lspconfig[server_name].setup {
+            capabilities = capabilities,
+          }
+        end,
+      }
+    end,
+  }
 }
