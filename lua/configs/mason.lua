@@ -48,8 +48,6 @@ M.ensure_installed = {
   "isort",
   "jedi-language-server",
   "djlint",
-  -- install 3rd party plugins
-  -- :PylspInstall pylsp-mypy pylsp-rope pyls-memestra pyls-isort python-lsp-black python-lsp-ruff
 
   -- Markdown / Text
   "texlab", -- testing
@@ -113,15 +111,6 @@ M.ensure_installed = {
   -- vim
   "vim-language-server",
   "vint",
-}
-
-M.pylsp_plugins_to_install = {
-  "pyls-memestra",
-  "pylsp-mypy",
-  "pyls-isort",
-  "python-lsp-black",
-  "pylsp-rope",
-  "python-lsp-ruff",
 }
 
 return M

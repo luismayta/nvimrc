@@ -16,12 +16,8 @@ M.ensure_installed = {
   "bashls",
 
   -- Python
-  "pylsp",
   "ruff",
   "pyright",
-  "jedi_language_server",
-  -- install 3rd party plugins
-  -- :PylspInstall pylsp-mypy pylsp-rope pyls-memestra pyls-isort python-lsp-black python-lsp-ruff
 
   -- Markdown / Text
   "texlab", -- testing
