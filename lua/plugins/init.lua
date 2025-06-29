@@ -36,54 +36,22 @@ return {
   { import = "plugins.spec.focus" },
   { import = "plugins.spec.regexplainer" },
   -- Languages
+  --
   -- others
   { import = "plugins.spec.gleam" },
 
   -- python
-  { "ChristianChiarulli/swenv.nvim", lazy = false },
-  { "nvim-neotest/neotest", lazy = false },
-  { "nvim-neotest/neotest-python", lazy = false },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-    },
-    config = function()
-      local dap = require "dap"
-      local dapui = require "dapui"
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap",
-  },
-  {
-    "mfussenegger/nvim-dap-python",
-    ft = "python",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
-    },
-  },
+  { import = "plugins.spec.python" },
   -- rust
 
   { import = "plugins.spec.rust" },
+  -- astro
 
   { import = "plugins.spec.vim-astro" },
-  { import = "plugins.spec.zen-mode" },
   -- go
   { import = "plugins.spec.go" },
   -- graphql
-  { import = "plugins.spec.vim-graphql" },
+  { import = "plugins.spec.graphql" },
   --   -- SRE
   { import = "plugins.spec.sre" },
 

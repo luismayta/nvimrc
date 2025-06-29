@@ -1,3 +1,4 @@
+local M = {}
 --
 --
 -- M.dap = {
@@ -177,3 +178,5 @@ map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", { desc = "Gitsigns to
 
 -- Disable mappings
 local nomap = vim.keymap.del
+
+return M
