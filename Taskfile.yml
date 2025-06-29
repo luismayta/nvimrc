@@ -153,6 +153,7 @@ tasks:
       - task: uv:fmt
 
   upgrade:
+    run: once
     desc: Execute upgrade packages
     cmds:
       - uv update
