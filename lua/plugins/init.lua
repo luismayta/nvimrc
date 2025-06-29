@@ -1,102 +1,74 @@
 return {
+
   -- Core UI and Themes
   { "NvChad/nvterm", enabled = false }, -- Disabled plugin
 
-  { import = "plugins.spec.theme" },
-  { import = "plugins.spec.ccc" },
-  -- AI and Coding Assistance
-  { import = "plugins.spec.ai" },
+  -- LSP / Language
+  { import = "plugins.spec.lang.python" },
+  { import = "plugins.spec.lang.rust" },
+  { import = "plugins.spec.lang.go" },
+  { import = "plugins.spec.lang.graphql" },
+  { import = "plugins.spec.lang.gleam" },
+  { import = "plugins.spec.lang.typescript" },
+  { import = "plugins.spec.lang.sre" },
 
-  -- -- lsp
-  { import = "plugins.spec.mason" },
-  -- TOOLS
-  { import = "plugins.spec.asynctasks" },
-  { import = "plugins.spec.trouble" },
-  { import = "plugins.spec.b64" },
-  { import = "plugins.spec.dap-ui" },
-  { import = "plugins.spec.dap-virtual-text" },
-  { import = "plugins.spec.diffview" },
-  { import = "plugins.spec.ui" },
-  { import = "plugins.spec.fine-cmdline" },
-  -- Git
-  { import = "plugins.spec.git" },
+  -- UI / Visual Enhancements
+  { import = "plugins.spec.ui.theme" },
+  { import = "plugins.spec.ui.ccc" },
+  { import = "plugins.spec.ui.notify" },
+  { import = "plugins.spec.ui.ui" },
+  { import = "plugins.spec.ui.outline" },
+  { import = "plugins.spec.ui.focus" },
+  { import = "plugins.spec.ui.dropbar" },
+  { import = "plugins.spec.ui.edgy" },
+  { import = "plugins.spec.ui.screenkey" },
+  { import = "plugins.spec.ui.tabby-ml" },
+  { import = "plugins.spec.ui.md-preview" },
 
-  -- productivity
-  { import = "plugins.spec.productivity" },
+  -- AI / Coding Assistance
+  { import = "plugins.spec.ai.ai" },
+  { import = "plugins.spec.ai.codesnap" },
 
-  -- navigation
+  -- Debugging / DAP
+  { import = "plugins.spec.dap.dap-ui" },
+  { import = "plugins.spec.dap.dap-virtual-text" },
 
-  { import = "plugins.spec.goto-preview" },
-  { import = "plugins.spec.grug-far" },
-  { import = "plugins.spec.hover" },
-  { import = "plugins.spec.matchup" },
-  { import = "plugins.spec.neocomposer" },
-  { import = "plugins.spec.notify" },
-  { import = "plugins.spec.outline" },
-  { import = "plugins.spec.focus" },
-  { import = "plugins.spec.regexplainer" },
-  -- Languages
-  --
-  -- others
-  { import = "plugins.spec.gleam" },
+  -- Tools
+  { import = "plugins.spec.tools.asynctasks" },
+  { import = "plugins.spec.tools.b64" },
+  { import = "plugins.spec.tools.better-escape" },
+  { import = "plugins.spec.tools.comment" },
+  { import = "plugins.spec.tools.diffview" },
+  { import = "plugins.spec.tools.fine-cmdline" },
+  { import = "plugins.spec.tools.git" },
+  { import = "plugins.spec.tools.neogit" },
+  { import = "plugins.spec.tools.project" },
+  { import = "plugins.spec.tools.productivity" },
+  { import = "plugins.spec.tools.autosession" },
+  { import = "plugins.spec.tools.searchbox" },
 
-  -- python
-  { import = "plugins.spec.python" },
-  -- rust
+  -- Navigation
+  { import = "plugins.spec.navigation.hop" },
+  { import = "plugins.spec.navigation.goto-preview" },
+  { import = "plugins.spec.navigation.grug-far" },
+  { import = "plugins.spec.navigation.hover" },
+  { import = "plugins.spec.navigation.harpoon" },
+  { import = "plugins.spec.navigation.neocomposer" },
+  { import = "plugins.spec.navigation.lsp-signature" },
 
-  { import = "plugins.spec.rust" },
-  -- astro
+  -- Text Manipulation / Motion
+  { import = "plugins.spec.text.matchup" },
+  { import = "plugins.spec.text.regexplainer" },
+  { import = "plugins.spec.text.treesitter-textobjects" },
+  { import = "plugins.spec.text.ts-autotag" },
+  { import = "plugins.spec.text.scrolleof" },
 
-  { import = "plugins.spec.vim-astro" },
-  -- go
-  { import = "plugins.spec.go" },
-  -- graphql
-  { import = "plugins.spec.graphql" },
-  --   -- SRE
-  { import = "plugins.spec.sre" },
-
-  {
-    "nvimtools/none-ls.nvim",
-    ft = "go",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    opts = function()
-      return require "configs.null-ls"
-    end,
-  },
-  --   -- UI
-
-  -- Editor Enhancements
-  { "wakatime/vim-wakatime", lazy = false }, -- Time tracking
-  { import = "plugins.override.conform" }, -- Formatting
-  { import = "plugins.spec.hop" }, -- Navigation
-
-  -- Text Manipulation
-  {
-    "RRethy/vim-illuminate",
-    lazy = true,
-    event = "BufReadPost",
-    config = function()
-      require "configs.illuminate"
-    end,
-  },
-  { "hrsh7th/vim-eft", lazy = true, event = "BufReadPost" },
-
-  -- Scrolling
-  {
-    "karb94/neoscroll.nvim",
-    lazy = false,
-    event = "BufReadPost",
-    config = function()
-      require "configs.neoscroll"
-    end,
-  },
-
-  -- File Operations
-  { "lambdalisue/suda.vim", cmd = "SudaWrite" }, -- Sudo write
+  -- LSP Config
+  { import = "plugins.spec.lsp.mason" },
 
   -- Completion
   { import = "plugins.spec.completion" },
+
+  -- Overrides
+  { import = "plugins.override.conform" },
 }
