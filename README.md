@@ -27,7 +27,6 @@ This is a list of applications that need to be installed previously to enjoy all
 - [taskfile](https://github.com/go-task/task)
 - [Git](http://git-scm.com)
 - [Curl](https://github.com/bagder/curl)
-- [Wget](http://www.gnu.org/software/wget)
 
 ## Installation
 
@@ -37,7 +36,7 @@ This is a list of applications that need to be installed previously to enjoy all
 bash -c "$(curl -fsSL https://rebrand.ly/o3udt6)"
 ```
 
-### [wget](https://www.gnu.org/software/wget)
+### [wget](https://github.com/mirror/wget)
 
 ```{.sourceCode .bash}
 bash -c "$(wget https://rebrand.ly/o3udt6 -O -)"
@@ -84,7 +83,7 @@ Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following co
 
 ## Copyright
 
-Copyright © 2018-2025 [Hadenlabs](https://hadenlabs.com)
+Copyright © 2018-2026 [Hadenlabs](https://hadenlabs.com)
 
 ## Trademarks
 

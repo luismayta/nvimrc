@@ -66,7 +66,6 @@ requirements: |-
   - [taskfile](https://github.com/go-task/task)
   - [Git](http://git-scm.com)
   - [Curl](https://github.com/bagder/curl)
-  - [Wget](http://www.gnu.org/software/wget)
 
 usages:
   - docs/usage.md
