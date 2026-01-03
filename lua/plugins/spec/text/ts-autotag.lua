@@ -1,10 +1,6 @@
-local status_ok, auto_tag = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
-end
-
 return {
   "windwp/nvim-ts-autotag",
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
   ft = {
     "astro",
     "html",
@@ -25,10 +21,10 @@ return {
     "hbs",
   },
   config = function()
-    auto_tag.setup {
+    require("nvim-treesitter.configs").setup({
       autotag = {
         enable = true,
       },
-    }
+    })
   end,
 }

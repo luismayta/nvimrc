@@ -27,6 +27,7 @@ return {
   },
   {
     "yetone/avante.nvim",
+    enabled = false,
     event = "VeryLazy",
     lazy = false,
     version = false,

@@ -2,9 +2,10 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    priority = 1000,
     lazy = false,
     config = function()
-      require("catppuccin").setup {
+      require("catppuccin").setup({
         flavour = "mocha",
         transparent_background = false,
         integrations = {
@@ -12,9 +13,13 @@ return {
           treesitter = true,
           telescope = true,
           notify = true,
+          indent_blankline = {
+            enabled = true,
+          },
         },
-      }
-      vim.cmd.colorscheme "catppuccin"
+      })
+
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
   {
